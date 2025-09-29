@@ -1,45 +1,161 @@
 <section class="projects-hero">
   <div class="overlay">
-    <h1>Nuestros Proyectos</h1>
-    <p>Innovación y calidad en cada construcción</p>
+    <h1 class="hero-title">Nuestros Proyectos</h1>
+    <p class="hero-subtitle">Innovación y calidad en cada construcción</p>
   </div>
 </section>
 
 <section class="projects-content">
   <div class="container">
-    <div class="projects-grid">
-      <div class="project-card">
-        <img
-          src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=800"
-          alt="Edificio Residencial Lima"
-        />
-        <div class="card-body">
-          <h3>Edificio Residencial Lima</h3>
-          <p>Un proyecto moderno en la capital, con enfoque en sostenibilidad y confort.</p>
-        </div>
+
+    <div class="projects-section">
+      <div class="section-header animate-on-scroll" #animateOnScrollRef>
+        <h2>Proyectos Culminados</h2>
+        <p>Garantía de calidad y entrega. Conoce el éxito de nuestras construcciones.</p>
       </div>
 
-      <div class="project-card">
-        <img
-          src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800"
-          alt="Centro Empresarial Miraflores"
-        />
-        <div class="card-body">
-          <h3>Centro Empresarial Miraflores</h3>
-          <p>Un espacio corporativo de vanguardia en una de las zonas más dinámicas de Lima.</p>
+      <div class="projects-grid">
+        <a (click)="openProjectModal(projects[0])" class="project-card animate-on-scroll" #animateOnScrollRef style="--animation-delay: 0s;">
+          <div class="card-image-wrapper">
+            <div class="p-img-1" role="img" aria-label="Edificio Residencial Lima"></div>
+          </div>
+          <div class="card-info-overlay">
+            <h3>Edificio Residencial Lima</h3>
+            <p>Sostenibilidad y confort.</p>
+          </div>
+          <div class="card-static-body">
+            <div class="static-detail">Ubicación: <span>Lima</span></div>
+            <div class="static-detail">Área: <span>5,200 m²</span></div>
+            <div class="static-detail detail-content-type">Contenido: <span>Residencial</span></div>
+          </div>
+        </a>
+
+        <a (click)="openProjectModal(projects[1])" class="project-card animate-on-scroll" #animateOnScrollRef style="--animation-delay: 0.1s;">
+          <div class="card-image-wrapper">
+            <div class="p-img-2" role="img" aria-label="Centro Empresarial Miraflores"></div>
+          </div>
+          <div class="card-info-overlay">
+            <h3>Centro Empresarial Miraflores</h3>
+            <p>Vanguardia y eficiencia.</p>
+          </div>
+          <div class="card-static-body">
+            <div class="static-detail">Ubicación: <span>Miraflores</span></div>
+            <div class="static-detail">Área: <span>9,800 m²</span></div>
+            <div class="static-detail detail-content-type">Contenido: <span>Oficinas</span></div>
+          </div>
+        </a>
+
+        <a (click)="openProjectModal(projects[2])" class="project-card animate-on-scroll" #animateOnScrollRef style="--animation-delay: 0.2s;">
+          <div class="card-image-wrapper">
+            <div class="p-img-3" role="img" aria-label="Proyecto Industrial Arequipa"></div>
+          </div>
+          <div class="card-info-overlay">
+            <h3>Proyecto Industrial Arequipa</h3>
+            <p>Infraestructura robusta.</p>
+          </div>
+          <div class="card-static-body">
+            <div class="static-detail">Ubicación: <span>Arequipa</span></div>
+            <div class="static-detail">Área: <span>12,000 m²</span></div>
+            <div class="static-detail detail-content-type">Contenido: <span>Almacén</span></div>
+          </div>
+        </a>
+
+        <a (click)="openProjectModal(projects[3])" class="project-card animate-on-scroll" #animateOnScrollRef style="--animation-delay: 0.3s;">
+          <div class="card-image-wrapper">
+            <div class="p-img-4" role="img" aria-label="Centro Comercial Cusco"></div>
+          </div>
+          <div class="card-info-overlay">
+            <h3>Centro Comercial Cusco</h3>
+            <p>Resistente y moderno.</p>
+          </div>
+          <div class="card-static-body">
+            <div class="static-detail">Ubicación: <span>Cusco</span></div>
+            <div class="static-detail">Área: <span>4,500 m²</span></div>
+            <div class="static-detail detail-content-type">Contenido: <span>Comercial</span></div>
+          </div>
+        </a>
+
         </div>
+    </div>
+
+    <hr style="margin: 4rem 0; border: 0; border-top: 1px dashed #495057;">
+
+    <div class="projects-section in-progress">
+      <div class="section-header animate-on-scroll" #animateOnScrollRef style="--animation-delay: 0.4s;">
+        <h2>Proyectos en Proceso</h2>
+        <p>Próximamente disponibles. Estamos construyendo los líderes del mañana.</p>
       </div>
 
-      <div class="project-card">
-        <img
-          src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800"
-          alt="Proyecto Industrial Arequipa"
-        />
-        <div class="card-body">
-          <h3>Proyecto Industrial Arequipa</h3>
-          <p>Infraestructura eficiente y robusta para potenciar la industria del sur del país.</p>
-        </div>
+      <div class="projects-grid">
+        <a (click)="openProjectModal(projects[7])" class="project-card animate-on-scroll" #animateOnScrollRef style="--animation-delay: 0.5s;">
+          <div class="card-image-wrapper">
+            <div class="p-img-8" role="img" aria-label="Nuevo Proyecto Norte"></div>
+          </div>
+          <div class="card-info-overlay">
+            <h3>Residencial Costa Norte</h3>
+            <p>Viviendas de lujo.</p>
+          </div>
+          <div class="card-static-body">
+            <div class="static-detail">Ubicación: <span>Piura</span></div>
+            <div class="static-detail">Avance: <span>50%</span></div>
+            <span class="status-tag in-progress">En Proceso</span>
+          </div>
+        </a>
+
+        <a (click)="openProjectModal(projects[8])" class="project-card animate-on-scroll" #animateOnScrollRef style="--animation-delay: 0.6s;">
+          <div class="card-image-wrapper">
+            <div class="p-img-9" role="img" aria-label="Nuevo Proyecto Sur"></div>
+          </div>
+          <div class="card-info-overlay">
+            <h3>Planta Logística Sur</h3>
+            <p>Almacenamiento eficiente.</p>
+          </div>
+          <div class="card-static-body">
+            <div class="static-detail">Ubicación: <span>Ica</span></div>
+            <div class="static-detail">Avance: <span>25%</span></div>
+            <span class="status-tag in-progress">En Proceso</span>
+          </div>
+        </a>
       </div>
     </div>
   </div>
 </section>
+
+<div class="project-modal" [class.is-open]="selectedProject" (click)="closeProjectModal()">
+  <div class="modal-content" *ngIf="selectedProject" (click)="$event.stopPropagation()">
+    <button class="modal-close-btn" (click)="closeProjectModal()">×</button>
+
+    <div class="modal-gallery">
+      <div class="gallery-slider" [style.transform]="'translateX(' + (-currentImageIndex * 100) + '%)'">
+        <div class="gallery-slide" *ngFor="let image of selectedProject.images" [style.background-image]="'url(' + image + ')'"></div>
+      </div>
+
+      <button class="slide-button prev" (click)="prevImage()">&#10094;</button>
+      <button class="slide-button next" (click)="nextImage()">&#10095;</button>
+    </div>
+
+    <div class="modal-details">
+      <h2>{{ selectedProject.name }}</h2>
+      <p class="status-tag" [class.completed]="selectedProject.status === 'Culminado'" [class.in-progress]="selectedProject.status === 'En Proceso'">
+        {{ selectedProject.status }}
+      </p>
+
+      <div class="details-grid">
+        <div class="detail-item"><strong>Ubicación:</strong> <span>{{ selectedProject.location }}</span></div>
+        <div class="detail-item"><strong>Área Total:</strong> <span>{{ selectedProject.area }}</span></div>
+        <div class="detail-item"><strong>Tipo:</strong> <span>{{ selectedProject.type }}</span></div>
+        <div class="detail-item"><strong>Costo Estimado:</strong> <span>{{ selectedProject.cost }}</span></div>
+      </div>
+
+      <div class="modal-description">
+        <h3>Descripción y Características</h3>
+        <p>{{ selectedProject.description }}</p>
+
+        <ul>
+          <li *ngFor="let feature of selectedProject.features">{{ feature }}</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>

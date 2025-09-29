@@ -1,93 +1,214 @@
-/* Paleta de colores (misma que inicio) */
-$azul-oscuro: #0d1b2a;
+$azul-oscuro: #0a131f;
 $blanco: #ffffff;
-$dorado: #f5c518;
-$gris-claro: #f5f5f5;
-$gris-texto: #6c757d;
+$dorado: #ffc72c;
+$gris-claro: #f8f9fa;
+$gris-texto: #495057;
 
-.about-hero {
-  height: 50vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+$transition-duration: 0.4s;
+$card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+$card-shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15), 0 0 15px rgba($dorado, 0.4);
 
-  background: linear-gradient(rgba(13, 27, 42, 0.7), rgba(13, 27, 42, 0.7)),
-    url("https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1600")
-      no-repeat center center/cover;
-  color: $blanco;
+@mixin slide-up-animation {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition-delay: var(--animation-delay, 0s);
 
-  .overlay {
-    max-width: 800px;
-    padding: 2rem;
-
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: $dorado;
-    }
-
-    p {
-      font-size: 1.2rem;
-      color: lighten($blanco, 15%);
-    }
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
+@keyframes backgroundPan {
+  0% { background-position: 50% 50%; }
+  100% { background-position: 60% 60%; }
+}
+
+.about-hero {
+  position: relative;
+  height: 60vh;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  .hero-bg-parallax {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba($azul-oscuro, 0.75), rgba($azul-oscuro, 0.85)),
+      url("../../../../public/assets/Isopaneles/Isonapenes.01.jpg") no-repeat center center/cover;
+    transform: translateZ(0);
+    animation: backgroundPan 15s ease-in-out alternate infinite;
+    will-change: background-position;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: $blanco;
+
+    .container {
+      max-width: 900px;
+      padding: 0 2rem;
+    }
+
+    .animate-hero-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      color: $dorado;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeInSlideDown 1s ease-out forwards;
+      animation-delay: 0.2s;
+    }
+
+    .animate-hero-subtitle {
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: lighten($blanco, 10%);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInSlideUp 1s ease-out forwards;
+      animation-delay: 0.4s;
+    }
+  }
+
+  .hero-divider {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background: $gris-claro;
+    clip-path: polygon(0 0, 100% 100%, 0 100%);
+    z-index: 5;
+  }
+}
+
+@keyframes fadeInSlideDown {
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInSlideUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .about-content {
-  padding: 4rem 2rem;
+  position: relative;
+  padding: 6rem 2rem 4rem;
   background: $gris-claro;
+  z-index: 1;
 
   .container {
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
+  }
 
-    h2 {
-      font-size: 2rem;
-      font-weight: 700;
-      color: $azul-oscuro;
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $azul-oscuro;
+    margin-bottom: 1rem;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: $dorado;
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+  }
+
+  .section-subtitle {
+    font-size: 1.2rem;
+    color: $gris-texto;
+    line-height: 1.8;
+    margin-bottom: 4rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .info-card {
+    @include slide-up-animation;
+    background: $blanco;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: $card-shadow;
+    transition: transform $transition-duration ease, box-shadow $transition-duration ease, border $transition-duration ease;
+    text-align: center;
+    border: 1px solid transparent;
+
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: $card-shadow-hover;
+      border-color: $dorado;
+    }
+
+    .card-icon {
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      background-size: contain;
+      background-repeat: no-repeat;
       margin-bottom: 1.5rem;
+      border-radius: 50%;
+      background-color: lighten($dorado, 40%);
+      padding: 10px;
+      transition: background-color $transition-duration ease;
+
+      &.icon-mision {
+        background-image: url('../../../../public/assets/Iconos/mision.png');
+      }
+      &.icon-vision {
+        background-image: url('../../../../public/assets/Iconos/vision.png');
+      }
+      &.icon-valores {
+        background-image: url('../../../../public/assets/Iconos/valores.png');
+      }
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: $azul-oscuro;
     }
 
     p {
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: $gris-texto;
       line-height: 1.6;
-      margin-bottom: 3rem;
     }
+  }
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-
-      .card {
-        background: $blanco;
-        padding: 2rem;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        text-align: left;
-
-        &:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-        }
-
-        h3 {
-          font-size: 1.4rem;
-          font-weight: 600;
-          margin-bottom: 1rem;
-          color: $azul-oscuro;
-        }
-
-        p {
-          font-size: 1rem;
-          color: $gris-texto;
-        }
-      }
-    }
+@media (max-width: 768px) {
+  .about-hero .hero-content .animate-hero-title {
+    font-size: 2.5rem;
+  }
+  .about-hero .hero-content .animate-hero-subtitle {
+    font-size: 1.2rem;
+  }
+  .about-content {
+    padding-top: 4rem;
+  }
+  .about-content .section-title {
+    font-size: 2rem;
   }
 }
