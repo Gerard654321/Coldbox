@@ -1,0 +1,103 @@
+/* Paleta */
+$azul-oscuro: #0d1b2a;
+$blanco: #ffffff;
+$dorado: #f5c518;
+$gris-claro: #f5f5f5;
+$gris-texto: #6c757d;
+
+.quote-hero {
+  height: 35vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background: linear-gradient(rgba(13, 27, 42, 0.7), rgba(13, 27, 42, 0.7)),
+    url("https://images.unsplash.com/photo-1598604043033-9ecf64f4d0e3?w=1600")
+      no-repeat center center/cover;
+  color: $blanco;
+
+  .overlay {
+    padding: 2rem;
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: $dorado;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: lighten($blanco, 20%);
+    }
+  }
+}
+
+.quote-form-section {
+  background: $gris-claro;
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: center;
+
+  .form-container {
+    background: $blanco;
+    padding: 2.5rem;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+
+        label {
+          font-weight: 600;
+          margin-bottom: 0.5rem;
+          color: $azul-oscuro;
+        }
+
+        input,
+        textarea {
+          padding: 0.8rem 1rem;
+          border: 1px solid #ddd;
+          border-radius: 8px;
+          font-size: 1rem;
+          color: $azul-oscuro;
+          background: $gris-claro;
+          transition: all 0.3s ease;
+
+          &:focus {
+            border-color: $dorado;
+            outline: none;
+            background: $blanco;
+            box-shadow: 0 0 6px rgba(245, 197, 24, 0.4);
+          }
+        }
+      }
+
+      .btn-submit {
+        padding: 1rem;
+        border: none;
+        border-radius: 8px;
+        background: $dorado;
+        color: $azul-oscuro;
+        font-weight: 700;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.2s ease;
+
+        &:hover {
+          background: darken($dorado, 10%);
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+}
