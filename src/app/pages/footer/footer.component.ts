@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faFacebookF, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import { faFacebookF, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-footer',
@@ -12,5 +12,5 @@ import { faFacebookF, faInstagram, faLinkedinIn } from '@fortawesome/free-brands
 export class FooterComponent {
   faFacebook = faFacebookF;
   faInstagram = faInstagram;
-  faLinkedin = faLinkedinIn;
+  faWhatsapp = faWhatsapp;
 }
