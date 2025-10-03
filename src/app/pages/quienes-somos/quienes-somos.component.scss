@@ -3,15 +3,15 @@ $blanco: #ffffff;
 $dorado: #ffc72c;
 $gris-claro: #f8f9fa;
 $gris-texto: #495057;
-
+$azul-medio: #1f3a53;
 $transition-duration: 0.4s;
 $card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-$card-shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15), 0 0 15px rgba($dorado, 0.4);
+$card-shadow-hover: 0 18px 45px rgba(0, 0, 0, 0.2);
 
 @mixin slide-up-animation {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateY(30px);
+  transition: opacity 0.9s cubic-bezier(0.2, 0.8, 0.5, 1), transform 0.9s cubic-bezier(0.2, 0.8, 0.5, 1);
   transition-delay: var(--animation-delay, 0s);
 
   &.is-visible {
@@ -22,13 +22,53 @@ $card-shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15), 0 0 15px rgba($dorado, 0.4)
 
 @keyframes backgroundPan {
   0% { background-position: 50% 50%; }
-  100% { background-position: 60% 60%; }
+  100% { background-position: 65% 65%; }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: $azul-oscuro;
+  margin-bottom: 1.5rem;
+  position: relative;
+  text-align: center;
+
+  &.light {
+      color: $blanco;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 5px;
+    background: $dorado;
+    margin: 15px auto 0;
+    border-radius: 2px;
+  }
+}
+
+.section-subtitle {
+  font-size: 1.25rem;
+  color: $gris-texto;
+  line-height: 1.7;
+  margin-bottom: 4rem;
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .about-hero {
   position: relative;
   height: 60vh;
-  min-height: 400px;
+  min-height: 450px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,10 +80,10 @@ $card-shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15), 0 0 15px rgba($dorado, 0.4)
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba($azul-oscuro, 0.75), rgba($azul-oscuro, 0.85)),
+    background: linear-gradient(rgba($azul-oscuro, 0.8), rgba($azul-oscuro, 0.9)),
       url("../../../../public/assets/Isopaneles/Isonapenes.01.jpg") no-repeat center center/cover;
-    transform: translateZ(0);
-    animation: backgroundPan 15s ease-in-out alternate infinite;
+    background-size: 110% 110%; 
+    animation: backgroundPan 20s ease-in-out alternate infinite;
     will-change: background-position;
   }
 
@@ -53,30 +93,27 @@ $card-shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15), 0 0 15px rgba($dorado, 0.4)
     text-align: center;
     color: $blanco;
 
-    .container {
-      max-width: 900px;
-      padding: 0 2rem;
+    .hero-tagline {
+        font-size: 1.2rem;
+        font-weight: 500;
+        letter-spacing: 2px;
+        color: rgba($dorado, 0.8);
+        margin-bottom: 0.5rem;
+        opacity: 0;
+        animation: fadeInSlideUp 1s ease-out forwards;
+        animation-delay: 0.2s;
     }
 
     .animate-hero-title {
-      font-size: 3.5rem;
-      font-weight: 800;
-      margin-bottom: 0.5rem;
+      font-size: 4.5rem;
+      font-weight: 900;
+      margin-bottom: 0;
       color: $dorado;
       opacity: 0;
       transform: translateY(-20px);
-      animation: fadeInSlideDown 1s ease-out forwards;
-      animation-delay: 0.2s;
-    }
-
-    .animate-hero-subtitle {
-      font-size: 1.5rem;
-      font-weight: 300;
-      color: lighten($blanco, 10%);
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInSlideUp 1s ease-out forwards;
+      animation: fadeInSlideDown 1.2s ease-out forwards;
       animation-delay: 0.4s;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
     }
   }
 
@@ -84,9 +121,9 @@ $card-shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15), 0 0 15px rgba($dorado, 0.4)
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 100px;
+    height: 120px;
     background: $gris-claro;
-    clip-path: polygon(0 0, 100% 100%, 0 100%);
+    clip-path: polygon(0 40%, 100% 100%, 0 100%);
     z-index: 5;
   }
 }
@@ -98,79 +135,46 @@ $card-shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15), 0 0 15px rgba($dorado, 0.4)
   to { opacity: 1; transform: translateY(0); }
 }
 
-.about-content {
+// === 2. About Intro (Historia, Misión, Visión) ===
+.about-intro {
   position: relative;
-  padding: 6rem 2rem 4rem;
+  padding: 6rem 0 6rem;
   background: $gris-claro;
   z-index: 1;
 
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .section-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: $azul-oscuro;
-    margin-bottom: 1rem;
-    position: relative;
-
-    &::after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 4px;
-      background: $dorado;
-      margin: 10px auto 0;
-      border-radius: 2px;
-    }
-  }
-
-  .section-subtitle {
-    font-size: 1.2rem;
-    color: $gris-texto;
-    line-height: 1.8;
-    margin-bottom: 4rem;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .info-grid {
+  .info-mvv-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+    margin-top: 2rem;
   }
 
   .info-card {
     @include slide-up-animation;
     background: $blanco;
     padding: 2.5rem;
-    border-radius: 16px;
+    border-radius: 12px;
     box-shadow: $card-shadow;
-    transition: transform $transition-duration ease, box-shadow $transition-duration ease, border $transition-duration ease;
-    text-align: center;
-    border: 1px solid transparent;
+    transition: transform $transition-duration ease, box-shadow $transition-duration ease;
+    text-align: left;
+    border-top: 5px solid $dorado;
 
     &:hover {
-      transform: translateY(-10px);
+      transform: translateY(-8px);
       box-shadow: $card-shadow-hover;
-      border-color: $dorado;
     }
 
     .card-icon {
       display: inline-block;
-      width: 60px;
-      height: 60px;
-      background-size: contain;
+      width: 50px;
+      height: 50px;
+      background-size: 70%;
+      background-position: center;
       background-repeat: no-repeat;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
       border-radius: 50%;
       background-color: lighten($dorado, 40%);
-      padding: 10px;
-      transition: background-color $transition-duration ease;
+      box-shadow: 0 0 10px rgba($dorado, 0.3);
 
       &.icon-mision {
         background-image: url('../../../../public/assets/Iconos/mision.png');
@@ -178,37 +182,179 @@ $card-shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15), 0 0 15px rgba($dorado, 0.4)
       &.icon-vision {
         background-image: url('../../../../public/assets/Iconos/vision.png');
       }
-      &.icon-valores {
-        background-image: url('../../../../public/assets/Iconos/valores.png');
-      }
     }
 
     h3 {
-      font-size: 1.6rem;
-      font-weight: 700;
-      margin-bottom: 0.75rem;
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
       color: $azul-oscuro;
     }
 
     p {
-      font-size: 1rem;
+      font-size: 1.1rem;
       color: $gris-texto;
-      line-height: 1.6;
+      line-height: 1.7;
     }
   }
 }
 
-@media (max-width: 768px) {
-  .about-hero .hero-content .animate-hero-title {
-    font-size: 2.5rem;
-  }
-  .about-hero .hero-content .animate-hero-subtitle {
-    font-size: 1.2rem;
-  }
-  .about-content {
-    padding-top: 4rem;
-  }
-  .about-content .section-title {
-    font-size: 2rem;
-  }
+.core-values {
+    padding: 6rem 0;
+    background: $azul-oscuro;
+    
+    .section-subtitle {
+        color: lighten($azul-oscuro, 60%);
+    }
+
+    .values-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 3rem;
+        margin-top: 4rem;
+    }
+
+    .value-item {
+        @include slide-up-animation;
+        text-align: center;
+        padding: 1.5rem;
+        border-radius: 8px;
+        transition: background $transition-duration ease;
+
+        &:hover {
+            background: $azul-medio;
+        }
+
+        .icon-valores {
+            display: inline-block;
+            width: 70px;
+            height: 70px;
+            background-size: 60%;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin-bottom: 1rem;
+            border-radius: 50%;
+            background-color: $dorado;
+            box-shadow: 0 0 0 10px rgba($dorado, 0.1);
+            transition: transform $transition-duration ease;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+
+            &.icon-innovation {
+                background-image: url('../../../../public/assets/Iconos/innovation.png');
+            }
+            &.icon-sustainability {
+                background-image: url('../../../../public/assets/Iconos/valores.png');
+            }
+            &.icon-excellence {
+                background-image: url('../../../../public/assets/Iconos/excellence.png');
+            }
+        }
+
+        h4 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: $dorado;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 1rem;
+            color: lighten($azul-oscuro, 60%);
+            line-height: 1.6;
+        }
+    }
+}
+
+// === 4. Team Section (Adición de Datos) ===
+.team-section {
+    padding: 8rem 0;
+    background: $blanco;
+
+    .team-grid {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        flex-wrap: wrap;
+    }
+
+    .team-member {
+        @include slide-up-animation;
+        text-align: center;
+        max-width: 300px;
+
+        .member-photo {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            filter: grayscale(100%);
+            transition: filter $transition-duration ease;
+            
+            &:hover {
+                filter: grayscale(0%);
+            }
+        }
+
+        h4 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: $azul-oscuro;
+            margin-bottom: 0.2rem;
+        }
+
+        .member-role {
+            font-size: 1rem;
+            color: $dorado;
+            font-weight: 500;
+        }
+    }
+}
+
+
+// === Responsividad ===
+@media (max-width: 992px) {
+    .about-hero {
+        height: 50vh;
+        min-height: 350px;
+        .hero-content .animate-hero-title {
+            font-size: 3.5rem;
+        }
+    }
+    .about-intro .info-mvv-grid {
+        grid-template-columns: 1fr;
+    }
+    .about-intro .info-card {
+        text-align: center;
+        .card-icon {
+            margin: 0 auto 1rem;
+        }
+    }
+    .core-values .values-grid {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-title {
+        font-size: 2rem;
+        &::after {
+            width: 50px;
+            height: 4px;
+        }
+    }
+    .section-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 3rem;
+    }
+    .about-hero .hero-content .animate-hero-title {
+        font-size: 2.5rem;
+    }
+    .about-hero .hero-content .hero-tagline {
+        font-size: 1rem;
+    }
 }
