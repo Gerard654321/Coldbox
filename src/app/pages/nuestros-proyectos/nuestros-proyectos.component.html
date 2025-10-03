@@ -1,161 +1,305 @@
-<section class="projects-hero">
+<section class="projects-hero" role="banner">
   <div class="overlay">
     <h1 class="hero-title">Nuestros Proyectos</h1>
     <p class="hero-subtitle">Innovación y calidad en cada construcción</p>
   </div>
 </section>
 
-<section class="projects-content">
+<section class="projects-content" aria-labelledby="projects-culminados-title">
   <div class="container">
 
     <div class="projects-section">
-      <div class="section-header animate-on-scroll" #animateOnScrollRef>
-        <h2>Proyectos Culminados</h2>
+      <header class="section-header animate-on-scroll" #animateOnScrollRef>
+        <h2 id="projects-culminados-title">Proyectos Culminados</h2>
         <p>Garantía de calidad y entrega. Conoce el éxito de nuestras construcciones.</p>
-      </div>
+      </header>
 
       <div class="projects-grid">
-        <a (click)="openProjectModal(projects[0])" class="project-card animate-on-scroll" #animateOnScrollRef style="--animation-delay: 0s;">
-          <div class="card-image-wrapper">
-            <div class="p-img-1" role="img" aria-label="Edificio Residencial Lima"></div>
-          </div>
-          <div class="card-info-overlay">
-            <h3>Edificio Residencial Lima</h3>
-            <p>Sostenibilidad y confort.</p>
-          </div>
-          <div class="card-static-body">
-            <div class="static-detail">Ubicación: <span>Lima</span></div>
-            <div class="static-detail">Área: <span>5,200 m²</span></div>
-            <div class="static-detail detail-content-type">Contenido: <span>Residencial</span></div>
-          </div>
-        </a>
+        <ng-container *ngFor="let id of projectsCulminadosIds; let i = index">
+          <ng-container [ngSwitch]="id">
 
-        <a (click)="openProjectModal(projects[1])" class="project-card animate-on-scroll" #animateOnScrollRef style="--animation-delay: 0.1s;">
-          <div class="card-image-wrapper">
-            <div class="p-img-2" role="img" aria-label="Centro Empresarial Miraflores"></div>
-          </div>
-          <div class="card-info-overlay">
-            <h3>Centro Empresarial Miraflores</h3>
-            <p>Vanguardia y eficiencia.</p>
-          </div>
-          <div class="card-static-body">
-            <div class="static-detail">Ubicación: <span>Miraflores</span></div>
-            <div class="static-detail">Área: <span>9,800 m²</span></div>
-            <div class="static-detail detail-content-type">Contenido: <span>Oficinas</span></div>
-          </div>
-        </a>
+            <a *ngSwitchCase="1" (click)="openProjectModal(1, 'Casa Buenavista', 'Culminado')"
+              class="project-card animate-on-scroll" #animateOnScrollRef
+              [style.--animation-delay]="i * 0.1 + 's'"
+              role="button"
+              tabindex="0"
+              aria-label="Ver detalles de Casa Buenavista - Culminado">
 
-        <a (click)="openProjectModal(projects[2])" class="project-card animate-on-scroll" #animateOnScrollRef style="--animation-delay: 0.2s;">
-          <div class="card-image-wrapper">
-            <div class="p-img-3" role="img" aria-label="Proyecto Industrial Arequipa"></div>
-          </div>
-          <div class="card-info-overlay">
-            <h3>Proyecto Industrial Arequipa</h3>
-            <p>Infraestructura robusta.</p>
-          </div>
-          <div class="card-static-body">
-            <div class="static-detail">Ubicación: <span>Arequipa</span></div>
-            <div class="static-detail">Área: <span>12,000 m²</span></div>
-            <div class="static-detail detail-content-type">Contenido: <span>Almacén</span></div>
-          </div>
-        </a>
+              <div class="card-image-wrapper">
+                <div class="p-proyec01-01" role="img" aria-label="Vista principal de Casa Buenavista"></div>
+              </div>
 
-        <a (click)="openProjectModal(projects[3])" class="project-card animate-on-scroll" #animateOnScrollRef style="--animation-delay: 0.3s;">
-          <div class="card-image-wrapper">
-            <div class="p-img-4" role="img" aria-label="Centro Comercial Cusco"></div>
-          </div>
-          <div class="card-info-overlay">
-            <h3>Centro Comercial Cusco</h3>
-            <p>Resistente y moderno.</p>
-          </div>
-          <div class="card-static-body">
-            <div class="static-detail">Ubicación: <span>Cusco</span></div>
-            <div class="static-detail">Área: <span>4,500 m²</span></div>
-            <div class="static-detail detail-content-type">Contenido: <span>Comercial</span></div>
-          </div>
-        </a>
+              <div class="card-static-body">
+                <div class="static-detail">Ubicación: <span>Urb. El Háras - Ica</span></div>
+                <div class="static-detail">Área: <span>120 m²</span></div>
+                <div class="static-detail detail-content-type">Detalles: <span>Vivienda de 02 pisos</span></div>
+              </div>
+            </a>
 
-        </div>
+            <a *ngSwitchCase="2" (click)="openProjectModal(2, 'Luxury House', 'Culminado')"
+              class="project-card animate-on-scroll" #animateOnScrollRef
+              [style.--animation-delay]="i * 0.1 + 's'"
+              role="button"
+              tabindex="0"
+              aria-label="Ver detalles de Luxury House - Culminado">
+
+              <div class="card-image-wrapper">
+                <div class="p-proyec02-01" role="img" aria-label="Vista principal de Luxury House"></div>
+              </div>
+
+              <div class="card-static-body">
+                <div class="static-detail">Ubicación: <span>Urb. El Háras - Ica</span></div>
+                <div class="static-detail">Área: <span>160 m²</span></div>
+                <div class="static-detail detail-content-type">Detalles: <span>Vivienda de 01 piso y un duplex encima de la vivienda.</span></div>
+              </div>
+            </a>
+
+            <a *ngSwitchCase="3" (click)="openProjectModal(3, 'Casa Puesta del Sol', 'Culminado')"
+              class="project-card animate-on-scroll" #animateOnScrollRef
+              [style.--animation-delay]="i * 0.1 + 's'"
+              role="button"
+              tabindex="0"
+              aria-label="Ver detalles de Casa Puesta del Sol - Culminado">
+
+              <div class="card-image-wrapper">
+                <div class="p-proyec03-01" role="img" aria-label="Vista principal de Casa Puesta del Sol"></div>
+              </div>
+
+              <div class="card-static-body">
+                <div class="static-detail">Ubicación: <span>Urb. El Háras - Ica</span></div>
+                <div class="static-detail">Área: <span>1300 m²</span></div>
+                <div class="static-detail detail-content-type">Detalles: <span>Vivienda de 02 con terraza, bar y piscina.</span></div>
+              </div>
+            </a>
+
+            <a *ngSwitchCase="4" (click)="openProjectModal(4, 'Casa Puesta del Sol', 'Culminado')"
+              class="project-card animate-on-scroll" #animateOnScrollRef
+              [style.--animation-delay]="i * 0.1 + 's'"
+              role="button"
+              tabindex="0"
+              aria-label="Ver detalles de Casa Puesta del Sol - Culminado">
+
+              <div class="card-image-wrapper">
+                <div class="p-proyec04-01" role="img" aria-label="Vista principal de Casa Puesta del Sol"></div>
+              </div>
+
+              <div class="card-static-body">
+                <div class="static-detail">Ubicación: <span>Urb. El Háras - Ica</span></div>
+                <div class="static-detail">Área: <span>130 m²</span></div>
+                <div class="static-detail detail-content-type">Detalles: <span>Vivienda de 02 con terraza, bar y piscina.</span></div>
+              </div>
+            </a>
+          </ng-container>
+        </ng-container>
+      </div>
     </div>
 
-    <hr style="margin: 4rem 0; border: 0; border-top: 1px dashed #495057;">
+    <hr class="section-divider" aria-hidden="true">
 
     <div class="projects-section in-progress">
-      <div class="section-header animate-on-scroll" #animateOnScrollRef style="--animation-delay: 0.4s;">
-        <h2>Proyectos en Proceso</h2>
+      <header class="section-header animate-on-scroll" #animateOnScrollRef style="--animation-delay: 0.4s;">
+        <h2 id="projects-in-progress-title">Proyectos en Proceso</h2>
         <p>Próximamente disponibles. Estamos construyendo los líderes del mañana.</p>
-      </div>
+      </header>
 
       <div class="projects-grid">
-        <a (click)="openProjectModal(projects[7])" class="project-card animate-on-scroll" #animateOnScrollRef style="--animation-delay: 0.5s;">
-          <div class="card-image-wrapper">
-            <div class="p-img-8" role="img" aria-label="Nuevo Proyecto Norte"></div>
-          </div>
-          <div class="card-info-overlay">
-            <h3>Residencial Costa Norte</h3>
-            <p>Viviendas de lujo.</p>
-          </div>
-          <div class="card-static-body">
-            <div class="static-detail">Ubicación: <span>Piura</span></div>
-            <div class="static-detail">Avance: <span>50%</span></div>
-            <span class="status-tag in-progress">En Proceso</span>
-          </div>
-        </a>
+        <ng-container *ngFor="let id of projectsEnProcesoIds; let i = index">
+          <ng-container [ngSwitch]="id">
 
-        <a (click)="openProjectModal(projects[8])" class="project-card animate-on-scroll" #animateOnScrollRef style="--animation-delay: 0.6s;">
-          <div class="card-image-wrapper">
-            <div class="p-img-9" role="img" aria-label="Nuevo Proyecto Sur"></div>
-          </div>
-          <div class="card-info-overlay">
-            <h3>Planta Logística Sur</h3>
-            <p>Almacenamiento eficiente.</p>
-          </div>
-          <div class="card-static-body">
-            <div class="static-detail">Ubicación: <span>Ica</span></div>
-            <div class="static-detail">Avance: <span>25%</span></div>
-            <span class="status-tag in-progress">En Proceso</span>
-          </div>
-        </a>
+            <a *ngSwitchCase="5" (click)="openProjectModal(5, 'Proyecto Casa Doble', 'En Proceso')"
+              class="project-card animate-on-scroll" #animateOnScrollRef
+              [style.--animation-delay]="i * 0.1 + 0.5 + 's'"
+              role="button"
+              tabindex="0"
+              aria-label="Ver detalles de Proyecto Casa Doble - En Proceso">
+
+              <div class="card-image-wrapper">
+                <div class="p-proyec05-01" role="img" aria-label="Vista principal de Proyecto Casa Doble"></div>
+              </div>
+
+              <div class="card-static-body">
+                <div class="static-detail">Ubicación: <span>Urb. El Háras - Ica</span></div>
+                <div class="static-detail">Avance: <span>50%</span></div>
+                <span class="status-tag in-progress" aria-label="Estado: En Proceso">En Proceso</span>
+              </div>
+            </a>
+
+            <a *ngSwitchCase="6" (click)="openProjectModal(6, 'Proyecto Macacona', 'En Proceso')"
+              class="project-card animate-on-scroll" #animateOnScrollRef
+              [style.--animation-delay]="i * 0.1 + 0.5 + 's'"
+              role="button"
+              tabindex="0"
+              aria-label="Ver detalles de Proyecto Macacona - En Proceso">
+
+              <div class="card-image-wrapper">
+                <div class="p-proyec06-01" role="img" aria-label="Vista principal de Proyecto Macacona"></div>
+              </div>
+
+              <div class="card-static-body">
+                <div class="static-detail">Ubicación: <span>Urb. Macacona - Ica</span></div>
+                <div class="static-detail">Avance: <span>25%</span></div>
+                <span class="status-tag in-progress" aria-label="Estado: En Proceso">En Proceso</span>
+              </div>
+            </a>
+          </ng-container>
+        </ng-container>
       </div>
     </div>
   </div>
 </section>
 
-<div class="project-modal" [class.is-open]="selectedProject" (click)="closeProjectModal()">
+<div class="project-modal"
+  [class.is-open]="selectedProject"
+  (click)="closeProjectModal()"
+  role="dialog"
+  aria-modal="true"
+  [attr.aria-label]="selectedProject ? ('Detalles del proyecto ' + selectedProject.name) : null"
+  tabindex="-1">
+
   <div class="modal-content" *ngIf="selectedProject" (click)="$event.stopPropagation()">
-    <button class="modal-close-btn" (click)="closeProjectModal()">×</button>
+    <button class="modal-close-btn" (click)="closeProjectModal()" aria-label="Cerrar detalles del proyecto">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.707 12.293a1 1 0 01-1.414 1.414L12 13.414l-2.293 2.293a1 1 0 01-1.414-1.414L10.586 12 8.293 9.707a1 1 0 011.414-1.414L12 10.586l2.293-2.293a1 1 0 011.414 1.414L13.414 12l2.293 2.293z"/>
+      </svg>
+    </button>
 
     <div class="modal-gallery">
-      <div class="gallery-slider" [style.transform]="'translateX(' + (-currentImageIndex * 100) + '%)'">
-        <div class="gallery-slide" *ngFor="let image of selectedProject.images" [style.background-image]="'url(' + image + ')'"></div>
+      <div class="gallery-slider" [style.transform]="'translateX(' + (-currentImageIndex * 100) + '%)'" role="group" aria-live="polite">
+
+        <div class="gallery-slide"
+          *ngFor="let index of imageIndices; let k = index"
+          [ngClass]="'p-proyec0' + selectedProject!.id + '-' + (k < 9 ? '0' : '') + (k + 1)"
+          [attr.aria-label]="'Imagen ' + (k+1) + ' de ' + modalImageCount + ' del proyecto ' + selectedProject!.name"
+          role="img">
+        </div>
+
       </div>
 
-      <button class="slide-button prev" (click)="prevImage()">&#10094;</button>
-      <button class="slide-button next" (click)="nextImage()">&#10095;</button>
+      <button class="slide-button prev" (click)="prevImage()" aria-controls="gallery-slider" aria-label="Imagen anterior">&#10094;</button>
+      <button class="slide-button next" (click)="nextImage()" aria-controls="gallery-slider" aria-label="Siguiente imagen">&#10095;</button>
+      <div class="gallery-indicator">{{ currentImageIndex + 1 }} / {{ modalImageCount }}</div>
     </div>
 
     <div class="modal-details">
-      <h2>{{ selectedProject.name }}</h2>
-      <p class="status-tag" [class.completed]="selectedProject.status === 'Culminado'" [class.in-progress]="selectedProject.status === 'En Proceso'">
-        {{ selectedProject.status }}
+      <h2>{{ selectedProject!.name }}</h2>
+      <p class="status-tag"
+         [class.completed]="selectedProject!.status === 'Culminado'"
+         [class.in-progress]="selectedProject!.status === 'En Proceso'"
+         role="status">
+        {{ selectedProject!.status }}
       </p>
 
-      <div class="details-grid">
-        <div class="detail-item"><strong>Ubicación:</strong> <span>{{ selectedProject.location }}</span></div>
-        <div class="detail-item"><strong>Área Total:</strong> <span>{{ selectedProject.area }}</span></div>
-        <div class="detail-item"><strong>Tipo:</strong> <span>{{ selectedProject.type }}</span></div>
-        <div class="detail-item"><strong>Costo Estimado:</strong> <span>{{ selectedProject.cost }}</span></div>
-      </div>
+      <ng-container [ngSwitch]="selectedProject!.id">
+        <ng-container *ngSwitchCase="1">
+          <div class="details-grid">
+            <div class="detail-item"><strong>Ubicación: </strong> <span>Urb. El Háras - Ica</span></div>
+            <div class="detail-item"><strong>Área Total: </strong> <span>120 m²</span></div>
+            <div class="detail-item"><strong>Tipo: </strong> <span>Vivienda</span></div>
+            <div class="detail-item"><strong>Costo Estimado: </strong> <span>$130 000</span></div>
+          </div>
+          <div class="modal-description">
+            <h3>Descripción y Características</h3>
+            <p>Proyecto de dos pisos, con amplias áreas verdes, cocina con vista al comedor, terraza frente a la piscina.</p>
+            <ul>
+              <li>Habitaciones en el segundo piso</li>
+              <li>Zona de terraza</li>
+              <li>Zona de piscina</li>
+              <li>Comedor con vista a las áreas verdes</li>
+            </ul>
+          </div>
+        </ng-container>
 
-      <div class="modal-description">
-        <h3>Descripción y Características</h3>
-        <p>{{ selectedProject.description }}</p>
+        <ng-container *ngSwitchCase="2">
+          <div class="details-grid">
+            <div class="detail-item"><strong>Ubicación: </strong> <span>Urb. El Háras - Ica</span></div>
+            <div class="detail-item"><strong>Área Total: </strong> <span>160 m²</span></div>
+            <div class="detail-item"><strong>Tipo: </strong> <span>Vivienda</span></div>
+            <div class="detail-item"><strong>Costo Estimado: </strong> <span>$210 000</span></div>
+          </div>
+          <div class="modal-description">
+            <h3>Descripción y Características</h3>
+            <p>Vivienda que contiene 02 proyecto, el primero es una casa y el segundo es un duplex..</p>
+            <ul>
+              <li>Vivienda amplia con terraza y piscina</li>
+              <li>Comedor con vista a la cocina y a las áreas verdes</li>
+              <li>Duplex con vista a la calle</li>
+              <li>Con una pequeña piscina y zona de parrilla</li>
+            </ul>
+          </div>
+        </ng-container>
 
-        <ul>
-          <li *ngFor="let feature of selectedProject.features">{{ feature }}</li>
-        </ul>
-      </div>
+        <ng-container *ngSwitchCase="3">
+          <div class="details-grid">
+            <div class="detail-item"><strong>Ubicación: </strong> <span>Urb. El Háras - Ica</span></div>
+            <div class="detail-item"><strong>Área Total: </strong> <span>130 m²</span></div>
+            <div class="detail-item"><strong>Tipo: </strong> <span>Vivienda</span></div>
+            <div class="detail-item"><strong>Costo Estimado: </strong> <span>$150 000</span></div>
+          </div>
+          <div class="modal-description">
+            <h3>Descripción y Características</h3>
+            <p>Vivienda de 02 pisos con una amplia cocina, comedor y sala.</p>
+            <ul>
+              <li>Amplias áreas verdes</li>
+              <li>Piscina con luces de colores</li>
+              <li>Zona de parrilla con bar incluido</li>
+            </ul>
+          </div>
+        </ng-container>
 
+        <ng-container *ngSwitchCase="4">
+          <div class="details-grid">
+            <div class="detail-item"><strong>Ubicación: </strong> <span>Urb. El Háras - Ica</span></div>
+            <div class="detail-item"><strong>Área Total: </strong> <span>130 m²</span></div>
+            <div class="detail-item"><strong>Tipo: </strong> <span>Vivienda</span></div>
+            <div class="detail-item"><strong>Costo Estimado: </strong> <span>$150 000</span></div>
+          </div>
+          <div class="modal-description">
+            <h3>Descripción y Características</h3>
+            <p>Vivienda de 02 pisos con una amplia cocina, comedor y sala.</p>
+            <ul>
+              <li>Amplias áreas verdes</li>
+              <li>Piscina con luces de colores</li>
+              <li>Zona de parrilla con bar incluido</li>
+            </ul>
+          </div>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="5">
+          <div class="details-grid">
+            <div class="detail-item"><strong>Ubicación: </strong> <span>Urb. El Háras - Ica</span></div>
+            <div class="detail-item"><strong>Avance: </strong> <span>50%</span></div>
+            <div class="detail-item"><strong>Tipo: </strong> <span>Viviendas</span></div>
+            <div class="detail-item"><strong>Costo Estimado: </strong> <span>$280 000</span></div>
+          </div>
+          <div class="modal-description">
+            <h3>Descripción y Características</h3>
+            <p>Viviendas de lujo y alto rendimiento, de 03 pisos.</p>
+            <ul>
+              <li>Resistencia a la humedad</li>
+              <li>Alta resistencia al viento</li>
+              <li>Entrega en Marzo del 2025</li>
+            </ul>
+          </div>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="6">
+          <div class="details-grid">
+            <div class="detail-item"><strong>Ubicación: </strong> <span>Urb. Macacona - Ica</span></div>
+            <div class="detail-item"><strong>Avance: </strong> <span>25%</span></div>
+            <div class="detail-item"><strong>Tipo: </strong> <span>Vivienda</span></div>
+            <div class="detail-item"><strong>Costo Estimado: </strong> <span>$180 000</span></div>
+          </div>
+          <div class="modal-description">
+            <h3>Descripción y Características</h3>
+            <p>Vivienda de 01 piso de lujo</p>
+            <ul>
+              <li>Amplias áreas verdes</li>
+              <li>Gran diseño arquitectonico</li>
+              <li>Entrega en Febrero del 2025</li>
+            </ul>
+          </div>
+        </ng-container>
+      </ng-container>
     </div>
   </div>
 </div>

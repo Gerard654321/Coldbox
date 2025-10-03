@@ -1,17 +1,27 @@
-$azul-oscuro: #0a131f;
-$blanco: #ffffff;
-$dorado: #ffc72c;
-$gris-claro: #f8f9fa;
-$gris-texto: #495057;
-$rojo-proceso: #dc3545;
+$color-primary: #0a131f;
+$color-secondary: #ffc72c;
+$color-background: #f8f9fa;
+$color-text: #495057;
+$color-white: #ffffff;
+$color-danger: #dc3545;
+$color-success: #28a745;
 
-$transition-duration: 0.5s;
-$card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 3rem;
+$spacing-xl: 5rem;
+
+$transition-speed-fast: 0.25s;
+$transition-speed-normal: 0.4s;
+$transition-speed-slow: 0.8s;
+$card-shadow-default: 0 4px 12px rgba(0, 0, 0, 0.08);
+$card-shadow-hover: 0 12px 30px rgba(0, 0, 0, 0.15), 0 0 15px rgba($color-secondary, 0.6);
 
 @mixin slide-up-animation {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateY($spacing-md);
+  transition: opacity $transition-speed-slow ease-out, transform $transition-speed-slow ease-out;
   transition-delay: var(--animation-delay, 0s);
 
   &.is-visible {
@@ -22,64 +32,52 @@ $card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 
 .projects-hero {
   position: relative;
-  height: 60vh; /* Aumentamos ligeramente la altura para más impacto */
+  height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   overflow: hidden;
-
-  /* CAMBIOS AQUÍ */
-  background: linear-gradient(rgba($azul-oscuro, 0.75), rgba($azul-oscuro, 0.85)),
-    url("../../../../public/assets/Casa03/Casa03.1.JPG") no-repeat fixed center/cover; /* Usamos 'fixed' para el parallax */
-  color: $blanco;
-
-  /* Aplicamos un filtro sutil que se desvanece para un efecto "encendido" */
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba($dorado, 0.1);
-    opacity: 0;
-    animation: backgroundFadeIn 2s ease-out 0.5s forwards;
-  }
+  background: linear-gradient(rgba($color-primary, 0.75), rgba($color-primary, 0.85)),
+    url("../../../../public/assets/Proyecto01/Proyecto01.05.JPG") no-repeat fixed center/cover;
+  color: $color-white;
 
   .overlay {
     z-index: 10;
 
     .hero-title {
-      font-size: 4rem;
-      font-weight: 900;
-      margin-bottom: 0.5rem;
-      color: $dorado;
-      letter-spacing: 5px;
-
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: $spacing-sm;
+      color: $color-secondary;
+      letter-spacing: 2px;
       overflow: hidden;
-      border-right: 0.15em solid $dorado;
+      border-right: 0.15em solid $color-secondary;
       white-space: nowrap;
-      margin: 0 auto;
-      letter-spacing: 0.15em;
+      margin: 0 auto $spacing-sm;
+      padding-right: $spacing-xs;
       animation:
         typing 2s steps(20, end) forwards,
         blink-caret 0.75s step-end infinite;
       width: 0;
       animation-delay: 0.5s;
+
+      @media (max-width: 600px) {
+        font-size: 2.5rem;
+      }
     }
 
     .hero-subtitle {
-      font-size: 1.6rem;
-      color: lighten($blanco, 15%);
+      font-size: 1.4rem;
+      color: lighten($color-white, 15%);
       opacity: 0;
       animation: fadeIn 1s ease-out 2.5s forwards;
+
+      @media (max-width: 600px) {
+        font-size: 1.1rem;
+      }
     }
   }
-}
-
-@keyframes backgroundFadeIn {
-  to { opacity: 1; }
 }
 
 @keyframes typing {
@@ -89,7 +87,7 @@ $card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 
 @keyframes blink-caret {
   from, to { border-color: transparent }
-  50% { border-color: $dorado; }
+  50% { border-color: $color-secondary; }
 }
 
 @keyframes fadeIn {
@@ -98,8 +96,8 @@ $card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 .projects-content {
-  padding: 5rem 2rem;
-  background: $gris-claro;
+  padding: $spacing-xl $spacing-md;
+  background: $color-background;
 
   .container {
     max-width: 1300px;
@@ -108,82 +106,99 @@ $card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 .projects-section {
-  margin-bottom: 5rem;
+  margin-bottom: $spacing-xl;
 
   &.in-progress {
     .section-header h2 {
-      color: $rojo-proceso;
-      &::after { background: $rojo-proceso; }
+      color: $color-danger;
+      &::after { background: $color-danger; }
     }
   }
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: $spacing-lg;
 
   h2 {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     font-weight: 700;
-    color: $azul-oscuro;
-    margin-bottom: 0.5rem;
+    color: $color-primary;
+    margin-bottom: $spacing-xs;
     position: relative;
     display: inline-block;
+    letter-spacing: 1px;
 
     &::after {
       content: '';
       display: block;
-      width: 80%;
-      height: 3px;
-      background: $dorado;
-      margin: 5px auto 0;
+      width: 60px;
+      height: 4px;
+      background: $color-secondary;
+      margin: 8px auto 0;
       border-radius: 2px;
+      transition: width $transition-speed-fast ease;
     }
   }
 
   p {
     font-size: 1.1rem;
-    color: $gris-texto;
+    color: $color-text;
   }
+}
+
+.section-divider {
+  margin: $spacing-xl 0;
+  border: 0;
+  border-top: 2px solid darken($color-background, 5%);
+  border-style: dashed;
 }
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: $spacing-lg;
 }
 
 .project-card {
   @include slide-up-animation;
+  display: flex;
+  flex-direction: column;
   position: relative;
-  background: $blanco;
-  border-radius: 0;
+  background: $color-white;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: $card-shadow;
+  box-shadow: $card-shadow-default;
   cursor: pointer;
-  transition: transform $transition-duration ease, box-shadow $transition-duration ease;
-  border: 1px solid $azul-oscuro;
+  text-decoration: none;
+  color: $color-primary;
+  transition: transform $transition-speed-normal ease, box-shadow $transition-speed-normal ease;
 
   &:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15), 0 0 10px rgba($dorado, 0.5);
+    transform: translateY(-$spacing-xs);
+    box-shadow: $card-shadow-hover;
   }
 
   .card-image-wrapper {
     position: relative;
     width: 100%;
-    height: 250px;
+    height: 220px;
     overflow: hidden;
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform $transition-duration ease;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to top, rgba($color-primary, 0.6) 0%, rgba($color-primary, 0) 50%);
+      transition: opacity $transition-speed-fast ease;
+      opacity: 1;
     }
 
-    &:hover img {
-      transform: scale(1.05);
+    .project-card:hover &::after {
+      opacity: 0.2;
     }
   }
 
@@ -192,120 +207,95 @@ $card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 1.5rem;
-    color: $blanco;
-    background: linear-gradient(transparent, rgba($azul-oscuro, 0.0));
-    transition: background $transition-duration ease;
+    padding: $spacing-md;
+    color: $color-white;
+    z-index: 2;
     pointer-events: none;
+    transform: translateY(0);
+    transition: transform $transition-speed-normal ease;
+
+    .project-card:hover & {
+      transform: translateY(-$spacing-xs);
+    }
 
     h3 {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       font-weight: 700;
-      margin-bottom: 0.2rem;
-      transform: translateY(0);
-      opacity: 0;
-      transition: transform $transition-duration ease 0.1s, opacity $transition-duration ease 0.1s;
+      margin-bottom: $spacing-xs / 2;
+      transition: color $transition-speed-fast ease;
     }
 
     p {
-      font-size: 1rem;
-      color: lighten($blanco, 20%);
-      transform: translateY(0);
-      opacity: 0;
-      transition: transform $transition-duration ease 0.2s, opacity $transition-duration ease 0.2s;
+      font-size: 0.95rem;
+      color: lighten($color-white, 20%);
+    }
+
+    .project-card:hover h3 {
+      color: $color-secondary;
     }
   }
 
   .card-static-body {
-    padding: 1rem 1.5rem;
-    background: $blanco;
-    display: flex;
-    justify-content: space-between;
+    padding: $spacing-md;
+    background: $color-white;
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: $spacing-sm;
     align-items: center;
-    border-top: 1px solid $gris-claro;
+    border-top: 1px solid darken($color-background, 5%);
 
     .static-detail {
-      font-size: 0.9rem;
-      color: $gris-texto;
+      font-size: 0.8rem;
+      color: $color-text;
       span {
         font-weight: 600;
-        color: $azul-oscuro;
+        color: $color-primary;
         display: block;
-        font-size: 1.1rem;
+        font-size: 1rem;
       }
+    }
+
+    .detail-content-type {
+      grid-column: 1 / 3;
     }
 
     .status-tag {
-      padding: 0.3rem 0.8rem;
-      border-radius: 6px;
+      grid-column: 3 / 4;
+      align-self: center;
+      justify-self: end;
+      padding: 0.4rem $spacing-sm;
+      border-radius: 50px;
       font-weight: 700;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
+
       &.completed {
-        background: #e6ffed;
-        color: #28a745;
+        background: lighten($color-success, 45%);
+        color: $color-success;
       }
       &.in-progress {
-        background: #ffebe6;
-        color: $rojo-proceso;
+        background: lighten($color-danger, 40%);
+        color: $color-danger;
         animation: pulse 1.5s infinite;
       }
-    }
-  }
-
-  &:hover .card-info-overlay {
-    background: linear-gradient(transparent, rgba($azul-oscuro, 0.0));
-    h3, p {
-      transform: translateY(0);
-      opacity: 0;
     }
   }
 }
 
 @keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba($rojo-proceso, 0.4); }
-  70% { box-shadow: 0 0 0 10px rgba($rojo-proceso, 0); }
-  100% { box-shadow: 0 0 0 0 rgba($rojo-proceso, 0); }
+  0% { box-shadow: 0 0 0 0 rgba($color-danger, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba($color-danger, 0); }
+  100% { box-shadow: 0 0 0 0 rgba($color-danger, 0); }
 }
-
-.p-img-1 { background-image: url('../../../../public/assets/Casa03/Casa03.1.JPG'); }
-.p-img-2 { background-image: url('../../../../public/assets/Casa03/Casa03.1.JPG'); }
-.p-img-3 { background-image: url('../../../../public/assets/Casa03/Casa03.1.JPG'); }
-.p-img-4 { background-image: url('../../../../public/assets/Casa03/Casa03.1.JPG'); }
-.p-img-5 { background-image: url('../../../../public/assets/Casa03/Casa03.1.JPG'); }
-.p-img-6 { background-image: url('../../../../public/assets/Casa03/Casa03.1.JPG'); }
-.p-img-7 { background-image: url('../../../../public/assets/Casa03/Casa03.1.JPG'); }
-
-.p-img-8 { background-image: url('../../../../public/assets/Casa03/Casa03.1.JPG'); }
-.p-img-9 { background-image: url('../../../../public/assets/Casa03/Casa03.1.JPG'); }
 
 .card-image-wrapper div {
   background-size: cover;
   background-position: center;
   width: 100%;
   height: 100%;
-}
+  transition: transform $transition-speed-normal ease;
 
-.project-card .card-static-body {
-  display: grid;
-  grid-template-columns: 1fr 1fr auto;
-  gap: 0.5rem;
-  padding: 1rem 1.5rem;
-
-  .status-tag {
-    grid-column: 3 / 4;
-    align-self: center;
-    justify-self: end;
-  }
-
-  .detail-content-type {
-    grid-column: 1 / 3;
-  }
-
-  .static-detail {
-    font-size: 0.85rem;
-    span {
-      font-size: 0.95rem;
-    }
+  .project-card:hover & {
+    transform: scale(1.08);
   }
 }
 
@@ -315,14 +305,15 @@ $card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba($azul-oscuro, 0.9);
+  background: rgba($color-primary, 0.95);
+  backdrop-filter: blur(5px);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
   visibility: hidden;
   opacity: 0;
-  transition: opacity 0.4s ease, visibility 0.4s ease;
+  transition: opacity $transition-speed-normal ease, visibility $transition-speed-normal ease;
 
   &.is-open {
     visibility: visible;
@@ -330,24 +321,24 @@ $card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   }
 
   .modal-content {
-    background: $blanco;
+    background: $color-white;
     border-radius: 16px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
     max-width: 90vw;
     max-height: 90vh;
-    width: 1000px;
+    width: 1100px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 3fr 2fr;
     overflow: hidden;
     position: relative;
-    transform: scale(0.9);
-    transition: transform 0.4s ease;
+    transform: scale(0.95) translateY(20px);
+    transition: transform $transition-speed-normal ease;
 
     .is-open & {
-      transform: scale(1);
+      transform: scale(1) translateY(0);
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 1024px) {
       grid-template-columns: 1fr;
       max-height: 95vh;
       overflow-y: auto;
@@ -356,30 +347,42 @@ $card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 
   .modal-close-btn {
     position: absolute;
-    top: 15px;
-    right: 15px;
-    background: none;
+    top: $spacing-md;
+    right: $spacing-md;
+    background: rgba($color-primary, 0.7);
     border: none;
-    color: $dorado;
-    font-size: 2rem;
+    color: $color-white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     cursor: pointer;
     z-index: 1010;
-    transition: color 0.2s;
+    transition: background $transition-speed-fast ease, color $transition-speed-fast ease;
+    padding: 0;
+    line-height: 0;
 
-    &:hover { color: lighten($dorado, 10%); }
+    &:hover { background: $color-secondary; color: $color-primary; }
+
+    svg {
+      width: 24px;
+      height: 24px;
+      display: block;
+      margin: auto;
+    }
   }
 
   .modal-gallery {
     position: relative;
     height: 100%;
-    min-height: 350px;
+    min-height: 400px;
     overflow: hidden;
+    background-color: $color-primary;
 
     .gallery-slider {
       display: flex;
       width: 100%;
       height: 100%;
-      transition: transform 0.5s ease-in-out;
+      transition: transform $transition-speed-normal ease-in-out;
     }
 
     .gallery-slide {
@@ -395,68 +398,198 @@ $card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba($azul-oscuro, 0.6);
-      color: $blanco;
+      background: rgba($color-primary, 0.4);
+      color: $color-white;
       border: none;
-      padding: 10px 15px;
+      padding: $spacing-xs $spacing-sm;
       cursor: pointer;
       z-index: 10;
       font-size: 1.5rem;
-      opacity: 0.8;
-      transition: opacity 0.2s, background 0.2s;
+      opacity: 0.7;
+      transition: opacity $transition-speed-fast ease, background $transition-speed-fast ease;
+      line-height: 1;
 
-      &:hover { opacity: 1; background: $azul-oscuro; }
+      &:hover { opacity: 1; background: $color-primary; }
       &.prev { left: 0; border-radius: 0 8px 8px 0; }
       &.next { right: 0; border-radius: 8px 0 0 8px; }
+    }
+
+    .gallery-indicator {
+      position: absolute;
+      bottom: $spacing-sm;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba($color-primary, 0.7);
+      color: $color-white;
+      padding: 0.2rem $spacing-sm;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      z-index: 10;
     }
   }
 
   .modal-details {
-    padding: 2rem;
+    padding: $spacing-lg;
+    display: flex;
+    flex-direction: column;
 
     h2 {
-      font-size: 2rem;
-      color: $azul-oscuro;
-      margin-bottom: 0.5rem;
+      font-size: 1.8rem;
+      color: $color-primary;
+      margin-bottom: $spacing-xs;
     }
 
     .status-tag {
       display: inline-block;
-      margin-bottom: 1.5rem;
+      margin-bottom: $spacing-md;
     }
 
     .details-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      padding: 1rem;
-      border: 1px solid $gris-claro;
+      gap: $spacing-sm;
+      margin-bottom: $spacing-lg;
+      padding: $spacing-md;
+      border: 1px solid darken($color-background, 5%);
       border-radius: 8px;
+      background: $color-background;
     }
 
     .detail-item {
-      font-size: 1rem;
-      color: $gris-texto;
-      strong { color: $azul-oscuro; font-weight: 600; }
+      font-size: 0.95rem;
+      color: $color-text;
+      strong { color: $color-primary; font-weight: 700; }
       span { font-weight: 400; }
     }
 
     .modal-description {
       h3 {
-        color: $dorado;
-        font-size: 1.2rem;
-        margin-top: 1rem;
-        margin-bottom: 0.5rem;
+        color: $color-secondary;
+        font-size: 1.3rem;
+        margin-top: $spacing-md;
+        margin-bottom: $spacing-sm;
+        border-bottom: 2px solid $color-secondary;
+        padding-bottom: $spacing-xs / 2;
+        display: inline-block;
       }
       ul {
-        list-style-type: '— ';
-        padding-left: 1.5rem;
+        list-style: none;
+        padding-left: 0;
+        margin-top: $spacing-sm;
         li {
-          color: $gris-texto;
-          margin-bottom: 0.3rem;
+          color: $color-text;
+          margin-bottom: $spacing-xs;
+          position: relative;
+          padding-left: $spacing-md;
+          &::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: $color-secondary;
+            font-weight: bold;
+            font-size: 1.2rem;
+            line-height: 1;
+          }
         }
       }
     }
   }
 }
+
+.p-proyec01-01  { background-image: url('../../../../public/assets/Proyecto01/Proyecto01.01.JPEG'); }
+.p-proyec01-02  { background-image: url('../../../../public/assets/Proyecto01/Proyecto01.02.JPG'); }
+.p-proyec01-03  { background-image: url('../../../../public/assets/Proyecto01/Proyecto01.03.JPG'); }
+.p-proyec01-04  { background-image: url('../../../../public/assets/Proyecto01/Proyecto01.04.JPG'); }
+.p-proyec01-05  { background-image: url('../../../../public/assets/Proyecto01/Proyecto01.05.JPG'); }
+.p-proyec01-06  { background-image: url('../../../../public/assets/Proyecto01/Proyecto01.06.JPG'); }
+.p-proyec01-07  { background-image: url('../../../../public/assets/Proyecto01/Proyecto01.07.JPG'); }
+.p-proyec01-08  { background-image: url('../../../../public/assets/Proyecto01/Proyecto01.08.JPG'); }
+.p-proyec01-09  { background-image: url('../../../../public/assets/Proyecto01/Proyecto01.09.JPG'); }
+.p-proyec01-10  { background-image: url('../../../../public/assets/Proyecto01/Proyecto01.10.JPG'); }
+.p-proyec01-11  { background-image: url('../../../../public/assets/Proyecto01/Proyecto01.11.JPG'); }
+.p-proyec01-12  { background-image: url('../../../../public/assets/Proyecto01/Proyecto01.12.JPG'); }
+.p-proyec01-13  { background-image: url('../../../../public/assets/Proyecto01/Proyecto01.13.JPG'); }
+.p-proyec01-14  { background-image: url('../../../../public/assets/Proyecto01/Proyecto01.14.JPG'); }
+.p-proyec01-15  { background-image: url('../../../../public/assets/Proyecto01/Proyecto01.15.JPG'); }
+.p-proyec01-16  { background-image: url('../../../../public/assets/Proyecto01/Proyecto01.16.JPG'); }
+.p-proyec01-17  { background-image: url('../../../../public/assets/Proyecto01/Proyecto01.17.JPG'); }
+.p-proyec01-18  { background-image: url('../../../../public/assets/Proyecto01/Proyecto01.18.JPG'); }
+.p-proyec01-19  { background-image: url('../../../../public/assets/Proyecto01/Proyecto01.19.JPG'); }
+.p-proyec01-20  { background-image: url('../../../../public/assets/Proyecto01/Proyecto01.20.JPG'); }
+.p-proyec01-21  { background-image: url('../../../../public/assets/Proyecto01/Proyecto01.21.JPG'); }
+.p-proyec01-22  { background-image: url('../../../../public/assets/Proyecto01/Proyecto01.22.JPG'); }
+.p-proyec01-23  { background-image: url('../../../../public/assets/Proyecto01/Proyecto01.23.JPG'); }
+
+.p-proyec02-01  { background-image: url('../../../../public/assets/Proyecto02/Proyecto02.01.JPG'); }
+.p-proyec02-02  { background-image: url('../../../../public/assets/Proyecto02/Proyecto02.02.JPG'); }
+.p-proyec02-03  { background-image: url('../../../../public/assets/Proyecto02/Proyecto02.03.JPG'); }
+.p-proyec02-04  { background-image: url('../../../../public/assets/Proyecto02/Proyecto02.04.JPG'); }
+.p-proyec02-05  { background-image: url('../../../../public/assets/Proyecto02/Proyecto02.05.JPG'); }
+.p-proyec02-06  { background-image: url('../../../../public/assets/Proyecto02/Proyecto02.06.JPG'); }
+.p-proyec02-07  { background-image: url('../../../../public/assets/Proyecto02/Proyecto02.07.JPG'); }
+.p-proyec02-08  { background-image: url('../../../../public/assets/Proyecto02/Proyecto02.08.JPG'); }
+.p-proyec02-09  { background-image: url('../../../../public/assets/Proyecto02/Proyecto02.09.JPG'); }
+.p-proyec02-10  { background-image: url('../../../../public/assets/Proyecto02/Proyecto02.10.JPG'); }
+.p-proyec02-11  { background-image: url('../../../../public/assets/Proyecto02/Proyecto02.11.JPG'); }
+.p-proyec02-12  { background-image: url('../../../../public/assets/Proyecto02/Proyecto02.12.JPG'); }
+.p-proyec02-13  { background-image: url('../../../../public/assets/Proyecto02/Proyecto02.13.JPG'); }
+.p-proyec02-14  { background-image: url('../../../../public/assets/Proyecto02/Proyecto02.14.JPG'); }
+.p-proyec02-15  { background-image: url('../../../../public/assets/Proyecto02/Proyecto02.15.JPG'); }
+.p-proyec02-16  { background-image: url('../../../../public/assets/Proyecto02/Proyecto02.16.JPG'); }
+.p-proyec02-17  { background-image: url('../../../../public/assets/Proyecto02/Proyecto02.17.JPG'); }
+.p-proyec02-18  { background-image: url('../../../../public/assets/Proyecto02/Proyecto02.18.JPG'); }
+
+.p-proyec03-01  { background-image: url('../../../../public/assets/Proyecto03/Proyecto03.01.PNG'); }
+.p-proyec03-02  { background-image: url('../../../../public/assets/Proyecto03/Proyecto03.02.PNG'); }
+.p-proyec03-03  { background-image: url('../../../../public/assets/Proyecto03/Proyecto03.03.PNG'); }
+.p-proyec03-04  { background-image: url('../../../../public/assets/Proyecto03/Proyecto03.04.PNG'); }
+.p-proyec03-05  { background-image: url('../../../../public/assets/Proyecto03/Proyecto03.05.PNG'); }
+.p-proyec03-06  { background-image: url('../../../../public/assets/Proyecto03/Proyecto03.06.PNG'); }
+.p-proyec03-07  { background-image: url('../../../../public/assets/Proyecto03/Proyecto03.07.PNG'); }
+.p-proyec03-08  { background-image: url('../../../../public/assets/Proyecto03/Proyecto03.08.PNG'); }
+.p-proyec03-09  { background-image: url('../../../../public/assets/Proyecto03/Proyecto03.09.PNG'); }
+.p-proyec03-10  { background-image: url('../../../../public/assets/Proyecto03/Proyecto03.10.PNG'); }
+.p-proyec03-11  { background-image: url('../../../../public/assets/Proyecto03/Proyecto03.11.PNG'); }
+.p-proyec03-12  { background-image: url('../../../../public/assets/Proyecto03/Proyecto03.12.PNG'); }
+.p-proyec03-13  { background-image: url('../../../../public/assets/Proyecto03/Proyecto03.13.PNG'); }
+.p-proyec03-14  { background-image: url('../../../../public/assets/Proyecto03/Proyecto03.14.PNG'); }
+.p-proyec03-15  { background-image: url('../../../../public/assets/Proyecto03/Proyecto03.15.PNG'); }
+.p-proyec03-16  { background-image: url('../../../../public/assets/Proyecto03/Proyecto03.16.PNG'); }
+.p-proyec03-17  { background-image: url('../../../../public/assets/Proyecto03/Proyecto03.17.PNG'); }
+.p-proyec03-18  { background-image: url('../../../../public/assets/Proyecto03/Proyecto03.18.PNG'); }
+.p-proyec03-19  { background-image: url('../../../../public/assets/Proyecto03/Proyecto03.19.PNG'); }
+.p-proyec03-20  { background-image: url('../../../../public/assets/Proyecto03/Proyecto03.20.PNG'); }
+.p-proyec03-21  { background-image: url('../../../../public/assets/Proyecto03/Proyecto03.21.PNG'); }
+.p-proyec03-22  { background-image: url('../../../../public/assets/Proyecto03/Proyecto03.22.PNG'); }
+.p-proyec03-23  { background-image: url('../../../../public/assets/Proyecto03/Proyecto03.23.PNG'); }
+
+.p-proyec04-01  { background-image: url('../../../../public/assets/Proyecto04/Proyecto04.01.PNG'); }
+.p-proyec04-02  { background-image: url('../../../../public/assets/Proyecto04/Proyecto04.02.PNG'); }
+.p-proyec04-03  { background-image: url('../../../../public/assets/Proyecto04/Proyecto04.03.PNG'); }
+.p-proyec04-04  { background-image: url('../../../../public/assets/Proyecto04/Proyecto04.04.PNG'); }
+.p-proyec04-05  { background-image: url('../../../../public/assets/Proyecto04/Proyecto04.05.PNG'); }
+
+.p-proyec05-01  { background-image: url('../../../../public/assets/Proyecto05/Proyecto05.01.JPG'); }
+.p-proyec05-02  { background-image: url('../../../../public/assets/Proyecto05/Proyecto05.02.JPG'); }
+.p-proyec05-03  { background-image: url('../../../../public/assets/Proyecto05/Proyecto05.03.JPG'); }
+.p-proyec05-04  { background-image: url('../../../../public/assets/Proyecto05/Proyecto05.04.JPG'); }
+.p-proyec05-05  { background-image: url('../../../../public/assets/Proyecto05/Proyecto05.05.JPG'); }
+.p-proyec05-06  { background-image: url('../../../../public/assets/Proyecto05/Proyecto05.06.JPG'); }
+.p-proyec05-07  { background-image: url('../../../../public/assets/Proyecto05/Proyecto05.07.JPG'); }
+.p-proyec05-08  { background-image: url('../../../../public/assets/Proyecto05/Proyecto05.08.JPG'); }
+.p-proyec05-09  { background-image: url('../../../../public/assets/Proyecto05/Proyecto05.09.JPG'); }
+.p-proyec05-10  { background-image: url('../../../../public/assets/Proyecto05/Proyecto05.10.JPG'); }
+.p-proyec05-11  { background-image: url('../../../../public/assets/Proyecto05/Proyecto05.11.JPG'); }
+.p-proyec05-12  { background-image: url('../../../../public/assets/Proyecto05/Proyecto05.12.PNG'); }
+.p-proyec05-13  { background-image: url('../../../../public/assets/Proyecto05/Proyecto05.13.PNG'); }
+.p-proyec05-14  { background-image: url('../../../../public/assets/Proyecto05/Proyecto05.14.PNG'); }
+.p-proyec05-15  { background-image: url('../../../../public/assets/Proyecto05/Proyecto05.15.PNG'); }
+.p-proyec05-16  { background-image: url('../../../../public/assets/Proyecto05/Proyecto05.16.PNG'); }
+
+.p-proyec06-01  { background-image: url('../../../../public/assets/Proyecto06/Proyecto06.01.JPG'); }
+.p-proyec06-02  { background-image: url('../../../../public/assets/Proyecto06/Proyecto06.02.JPG'); }
+.p-proyec06-03  { background-image: url('../../../../public/assets/Proyecto06/Proyecto06.03.PNG'); }
+.p-proyec06-04  { background-image: url('../../../../public/assets/Proyecto06/Proyecto06.04.JPG'); }
+.p-proyec06-05  { background-image: url('../../../../public/assets/Proyecto06/Proyecto06.05.JPG'); }
+.p-proyec06-06  { background-image: url('../../../../public/assets/Proyecto06/Proyecto06.06.JPG'); }

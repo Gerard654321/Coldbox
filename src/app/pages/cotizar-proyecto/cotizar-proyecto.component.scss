@@ -1,103 +1,189 @@
-/* Paleta */
-$azul-oscuro: #0d1b2a;
-$blanco: #ffffff;
-$dorado: #f5c518;
-$gris-claro: #f5f5f5;
-$gris-texto: #6c757d;
+@use 'sass:color';
 
-.quote-hero {
-  height: 35vh;
+$color-primary: #f5c518;
+$color-primary-dark: color.adjust($color-primary, $lightness: -10%);
+$color-dark: #0d1b2a;
+$color-light: #ffffff;
+$color-background: #f5f5f5;
+$color-border: #e0e0e0;
+$color-text-subtle: #9aa0a6; 
+
+$font-family-primary: 'Arial', sans-serif;
+$border-radius-base: 12px;
+$transition-speed: 0.35s;
+$spacing-unit: 1rem;
+
+.hero-section {
+  min-height: 35vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-
-  background: linear-gradient(rgba(13, 27, 42, 0.7), rgba(13, 27, 42, 0.7)),
-    url("https://images.unsplash.com/photo-1598604043033-9ecf64f4d0e3?w=1600")
+  padding: 4 * $spacing-unit 1 * $spacing-unit;
+  background: linear-gradient(rgba($color-dark, 0.8), rgba($color-dark, 0.8)),
+    url("../../../../public/assets/Isopaneles/Isonapenes.01.JPG")
       no-repeat center center/cover;
-  color: $blanco;
+  color: $color-light;
+  animation: fadeIn 1s ease-out;
 
-  .overlay {
-    padding: 2rem;
+  .hero-content {
+    max-width: 900px;
+  }
 
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: $dorado;
-      margin-bottom: 1rem;
+  .hero-title {
+    font-family: $font-family-primary;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: $color-primary;
+    margin-bottom: 0.5 * $spacing-unit;
+    letter-spacing: -0.05rem;
+    text-shadow: 0 4px 8px color.change($color-dark, $alpha: 0.6);
+  }
+
+  .hero-subtitle {
+    font-family: $font-family-primary;
+    font-size: 1.35rem;
+    font-weight: 300;
+    color: color.adjust($color-light, $lightness: 10%);
+    margin-top: 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.form-section {
+  background: $color-background;
+  padding: 5 * $spacing-unit 1 * $spacing-unit;
+  display: flex;
+  justify-content: center;
+}
+
+.form-card {
+  background: $color-light;
+  padding: 3.5 * $spacing-unit;
+  border-radius: $border-radius-base;
+  max-width: 700px;
+  width: 100%;
+  box-shadow: 0 15px 35px color.change($color-dark, $alpha: 0.08); 
+  transition: box-shadow $transition-speed ease;
+}
+
+.project-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2 * $spacing-unit;
+
+  .form-group-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2 * $spacing-unit;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-weight: 700; 
+      margin-bottom: 0.6 * $spacing-unit;
+      color: $color-dark;
+      font-size: 1rem;
+      transition: color $transition-speed;
     }
 
-    p {
-      font-size: 1.1rem;
-      color: lighten($blanco, 20%);
+    input,
+    textarea,
+    select {
+      padding: 1.1 * $spacing-unit;
+      border: 1px solid $color-border;
+      border-radius: 8px; 
+      font-size: 1rem;
+      color: $color-dark;
+      background: color.adjust($color-background, $lightness: 2%);
+      transition: all $transition-speed ease;
+      appearance: none;
+      
+      &::placeholder {
+        color: $color-text-subtle;
+      }
+    }
+    
+    select {
+      cursor: pointer;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: $color-primary;
+      outline: none;
+      background: $color-light;
+      box-shadow: 0 0 0 4px color.change($color-primary, $alpha: 0.3); 
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+  }
+
+  .btn-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75 * $spacing-unit;
+    padding: 1.2 * $spacing-unit 2 * $spacing-unit;
+    border: none;
+    border-radius: 8px;
+    background: $color-primary;
+    color: $color-dark;
+    font-weight: 700;
+    font-size: 1.15rem;
+    cursor: pointer;
+    transition: background $transition-speed ease, transform 0.2s ease, box-shadow $transition-speed ease;
+    user-select: none;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px color.change($color-primary, $alpha: 0.4);
+
+    &:hover:not([disabled]) {
+      background: $color-primary-dark;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px color.change($color-primary, $alpha: 0.5);
+    }
+    
+    &:active:not([disabled]) {
+      transform: translateY(0);
+      box-shadow: 0 4px 15px color.change($color-primary, $alpha: 0.4);
+    }
+    
+    &[disabled] {
+      background: $color-text-subtle;
+      cursor: not-allowed;
+      opacity: 0.7;
+      box-shadow: none;
+    }
+    
+    .icon-whatsapp {
+      svg {
+        fill: $color-dark;
+      }
     }
   }
 }
 
-.quote-form-section {
-  background: $gris-claro;
-  padding: 4rem 2rem;
-  display: flex;
-  justify-content: center;
+.success-message {
+  padding: 1 * $spacing-unit;
+  background-color: color.change($color-primary, $alpha: 0.15); 
+  color: $color-dark;
+  border-radius: 8px;
+  border: 1px solid $color-primary;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1rem;
+}
 
-  .form-container {
-    background: $blanco;
-    padding: 2.5rem;
-    border-radius: 12px;
-    max-width: 600px;
-    width: 100%;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-
-      .form-group {
-        display: flex;
-        flex-direction: column;
-
-        label {
-          font-weight: 600;
-          margin-bottom: 0.5rem;
-          color: $azul-oscuro;
-        }
-
-        input,
-        textarea {
-          padding: 0.8rem 1rem;
-          border: 1px solid #ddd;
-          border-radius: 8px;
-          font-size: 1rem;
-          color: $azul-oscuro;
-          background: $gris-claro;
-          transition: all 0.3s ease;
-
-          &:focus {
-            border-color: $dorado;
-            outline: none;
-            background: $blanco;
-            box-shadow: 0 0 6px rgba(245, 197, 24, 0.4);
-          }
-        }
-      }
-
-      .btn-submit {
-        padding: 1rem;
-        border: none;
-        border-radius: 8px;
-        background: $dorado;
-        color: $azul-oscuro;
-        font-weight: 700;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: background 0.3s ease, transform 0.2s ease;
-
-        &:hover {
-          background: darken($dorado, 10%);
-          transform: translateY(-2px);
-        }
-      }
-    }
-  }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
