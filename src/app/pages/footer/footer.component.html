@@ -1,39 +1,59 @@
-<footer class="footer">
-  <div class="footer-container">
-    <div class="footer-about">
-      <h3>Coldbox Perú</h3>
-      <p>
-        Construimos proyectos modernos y sostenibles con materiales de alta calidad.
+<footer class="app-footer" role="contentinfo">
+  <div class="footer-grid">
+    
+    <div class="footer-section footer-brand" aria-labelledby="footer-brand-title">
+      <h3 id="footer-brand-title" class="brand-title">Coldbox Perú</h3>
+      <p class="brand-slogan">
+        Construimos proyectos modernos y sostenibles con materiales de alta calidad y excelencia.
       </p>
-    </div>
-
-    <div class="footer-links">
-      <h4>Enlaces</h4>
-      <ul>
-        <li><a href="/inicio">Inicio</a></li>
-        <li><a href="/quienes-somos">Quiénes Somos</a></li>
-        <li><a href="/nuestros-proyectos">Proyectos</a></li>
-        <li><a href="/cotizar-proyecto">Cotizar</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-contact">
-      <h4>Contacto</h4>
-      <p>Email: contacto&#64;coldboxperu.com</p>
-      <p>Tel: +51991038374</p>
-    </div>
-
-    <div class="footer-social">
-      <h4>Síguenos</h4>
-      <div class="social-icons">
-        <a href="#"><fa-icon [icon]="faFacebook"></fa-icon></a>
-        <a href="#"><fa-icon [icon]="faInstagram"></fa-icon></a>
-        <a href="https://wa.me/51991038374"><fa-icon [icon]="faWhatsapp"></fa-icon></a>
+      <div class="footer-social" role="group" aria-label="Síguenos en redes sociales">
+        <a href="https://www.facebook.com/share/1Qa2DJwQ5r/?mibextid=wwXlfr" target="_blank" rel="noopener noreferrer" aria-label="Enlace a Facebook">
+          <fa-icon [icon]="faFacebook"></fa-icon>
+        </a>
+        <a href="https://www.instagram.com/coldboxperu/" target="_blank" rel="noopener noreferrer" aria-label="Enlace a Instagram">
+          <fa-icon [icon]="faInstagram"></fa-icon>
+        </a>
+        <a href="https://wa.me/51991038374" target="_blank" rel="noopener noreferrer" aria-label="Contáctanos por WhatsApp">
+          <fa-icon [icon]="faWhatsapp"></fa-icon>
+        </a>
       </div>
+    </div>
+
+    <div class="footer-section footer-links" aria-labelledby="footer-links-title">
+      <h4 id="footer-links-title">Navegación</h4>
+      <nav class="footer-nav">
+        <ul>
+          <li><a routerLink="/" (click)="scrollToTop()">Inicio</a></li>
+          <li><a routerLink="/quienes-somos" (click)="scrollToTop()">Conócenos</a></li>
+          <li><a routerLink="/nuestros-proyectos" (click)="scrollToTop()">Proyectos</a></li>
+          <li><a routerLink="/cotizar-proyecto" (click)="scrollToTop()">Cotizar</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="footer-section footer-contact" aria-labelledby="footer-contact-title">
+      <h4 id="footer-contact-title">Contacto</h4>
+      <address>
+        <p>
+          <fa-icon [icon]="faEnvelope"></fa-icon>
+          <a href="mailto:contacto@coldboxperu.com">contacto&#64;coldboxperu.com</a>
+        </p>
+        <p>
+          <fa-icon [icon]="faPhone"></fa-icon>
+          <a href="tel:+51991038374">+51 991 038 374</a>
+        </p>
+        <p class="contact-location">
+          <fa-icon [icon]="faMapMarkerAlt"></fa-icon>
+          Lima, Perú
+        </p>
+      </address>
     </div>
   </div>
 
   <div class="footer-bottom">
-    <p>&copy; 2025 Coldbox Perú - Todos los derechos reservados</p>
+    <p class="copyright">
+      &copy; {{ currentYear }} Coldbox Perú | Todos los derechos reservados.
+      <a routerLink="/politica-privacidad" (click)="scrollToTop()">Política de Privacidad</a>
+    </p>
   </div>
 </footer>

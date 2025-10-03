@@ -1,22 +1,39 @@
-<header class="header">
-  <div class="logo" aria-label="Coldbox Perú Logo"></div>
+<header class="header" [ngClass]="{'menu-is-open': isMenuOpen}">
+  <a routerLink="/" class="logo" aria-label="Coldbox Perú Logo"></a>
 
-  <div class="header-content" [ngClass]="{'open': isMenuOpen}">
-    <nav class="main-nav">
-      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Inicio</a>
-      <a routerLink="/quienes-somos" routerLinkActive="active">Conócenos</a>
-      <a routerLink="/nuestros-proyectos" routerLinkActive="active">Proyectos</a>
-      <a routerLink="/cotizar-proyecto" routerLinkActive="active">Cotizar</a>
+  <div class="menu-toggle" 
+       [attr.aria-expanded]="isMenuOpen" 
+       aria-controls="main-navigation"
+       (click)="toggleMenu()">
+    <span class="bar bar-top"></span>
+    <span class="bar bar-middle"></span>
+    <span class="bar bar-bottom"></span>
+  </div>
+
+  <div class="nav-container" [ngClass]="{'open': isMenuOpen}" *ngIf="isMenuOpen || isDesktop">
+    <nav class="main-nav" id="main-navigation" role="navigation">
+      <a routerLink="/" 
+         routerLinkActive="active" 
+         [routerLinkActiveOptions]="{exact:true}"
+         (click)="isMenuOpen && toggleMenu()">Inicio</a>
+      <a routerLink="/quienes-somos" 
+         routerLinkActive="active"
+         (click)="isMenuOpen && toggleMenu()">Conócenos</a>
+      <a routerLink="/nuestros-proyectos" 
+         routerLinkActive="active"
+         (click)="isMenuOpen && toggleMenu()">Proyectos</a>
+      <a routerLink="/cotizar-proyecto" 
+         routerLinkActive="active"
+         (click)="isMenuOpen && toggleMenu()">Cotizar</a>
     </nav>
-
-    <a href="https://wa.me/51991038374" target="_blank" class="whatsapp-button">
-      <i class="fab fa-whatsapp"></i> WhatsApp
-    </a>
   </div>
 
-  <div class="menu-toggle" [ngClass]="{'open': isMenuOpen}" (click)="toggleMenu()">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-  </div>
+  <a href="https://wa.me/51991038374?text=Hola%2C%20estoy%20interesado%20en%20una%20cotizaci%C3%B3n%20de%20proyecto." 
+     target="_blank" 
+     class="whatsapp-button"
+     rel="noopener noreferrer"
+     [ngClass]="{'mobile-only': !isDesktop && isMenuOpen}">
+    <i class="fab fa-whatsapp"></i>
+    <span>Contáctanos</span>
+  </a>
 </header>
