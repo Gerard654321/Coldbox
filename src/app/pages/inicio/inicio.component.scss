@@ -51,7 +51,7 @@ $mobile-breakpoint: 768px;
   text-align: center;
   
   background: linear-gradient(rgba($color-dark, 0.85), rgba($color-dark, 0.85)),
-    url('../../../../public/assets/Proyecto01/Proyecto01.07.JPG') no-repeat center center / cover;
+    url('../../../../public/assets/Proyecto01/Proyecto01.07.jpg') no-repeat center center / cover;
   background-attachment: fixed;
   color: $color-light;
 
@@ -178,15 +178,15 @@ $mobile-breakpoint: 768px;
       }
 
       &.feature-1 .feature-card-image {
-        background-image: url('../../../../public/assets/Proyecto02/Proyecto02.06.JPG');
+        background-image: url('../../../../public/assets/Proyecto02/Proyecto02.06.jpg');
       }
 
       &.feature-2 .feature-card-image {
-        background-image: url('../../../../public/assets/Proyecto01/Proyecto01.15.JPG');
+        background-image: url('../../../../public/assets/Proyecto01/Proyecto01.15.jpg');
       }
 
       &.feature-3 .feature-card-image {
-        background-image: url('../../../../public/assets/Proyecto03/Proyecto03.01.PNG');
+        background-image: url('../../../../public/assets/Proyecto03/Proyecto03.01.png');
       }
 
       .card-content {
