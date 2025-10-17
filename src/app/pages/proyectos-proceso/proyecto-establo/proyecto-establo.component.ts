@@ -5,27 +5,27 @@ type ProjectStat = { label: string; value: string };
 type TimelineStep = { title: string; desc: string };
 
 @Component({
-  selector: 'app-luxury-house',
+  selector: 'app-proyecto-establo',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './luxury-house.component.html',
-  styleUrls: ['./luxury-house.component.scss']
+  templateUrl: './proyecto-establo.component.html',
+  styleUrls: ['./proyecto-establo.component.scss']
 })
-export class LuxuryHouseComponent {
+export class ProyectoEstabloComponent {
   project = {
-    name: 'Luxury House',
-    location: 'Ica, Perú',
-    status: 'Proyecto culminado',
+    name: 'Establo para trabajadores',
+    location: 'Pueblo Nuevo, Ica',
+    status: 'Proyecto en proceso',
     description:
-      'Residencia unifamiliar con paneles térmicos de alto desempeño, circulación eficiente e iluminación natural. Espacios integrados con mantenimiento sencillo y eficiencia energética.'
+      'Este proyecto consiste en la construcción de 05 módulos habitacionales tipo flat, cada uno con baño independiente y una superficie de 80 m². Las estructuras fueron desarrolladas utilizando paneles térmicos tipo isopanel, una solución moderna que ofrece eficiencia energética, aislamiento acústico y rapidez constructiva. El proyecto se ubica en la ciudad de Ica, distrito de Pueblo Libre, en el terreno de un antiguo establo adaptado para uso habitacional, optimizando el espacio existente y aprovechando su infraestructura base. Cada módulo fue diseñado para brindar confort, funcionalidad y durabilidad, integrando ambientes amplios, ventilados y con acabados prácticos, pensados para las condiciones climáticas de la región.'
   };
 
   stats: ProjectStat[] = [
-    { label: 'Área', value: '145 m²' },
-    { label: 'Dormitorios', value: '3' },
-    { label: 'Baños', value: '2.5' },
-    { label: 'Estructura', value: 'EPS/PUR' },
-    { label: 'Entrega', value: '2025' }
+    { label: 'Área', value: '400 m²' },
+    { label: 'Flats', value: '05' },
+    { label: 'Baños', value: '05' },
+    { label: 'Estructura', value: 'ISOPANEL' },
+    { label: 'Entrega', value: 'Octubre 2025' }
   ];
 
   features = [
@@ -52,7 +52,7 @@ export class LuxuryHouseComponent {
     { q: '¿Qué desempeño térmico alcanza?', a: 'Con PUR 80–100mm se logran transmitancias por debajo de 0.3–0.4 W/m²K.', open: false }
   ];
 
-  readonly totalImages = 23;
+  readonly totalImages = 16;
   readonly indices = Array.from({ length: this.totalImages }, (_, i) => i + 1);
   currentIndex = 0;
   year = new Date().getFullYear();
