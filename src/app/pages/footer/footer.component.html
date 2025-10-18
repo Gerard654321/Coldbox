@@ -1,59 +1,59 @@
 <footer class="app-footer" role="contentinfo">
-  <div class="footer-grid">
+  <div class="container">
+    <div class="top">
+      <div class="card brand" aria-labelledby="footer-brand-title">
+        <div class="logo" aria-hidden="true"></div>
+        <p id="footer-brand-title" class="slogan">Construimos proyectos modernos y sostenibles con materiales de alta calidad y excelencia.</p>
+      </div>
 
-    <div class="footer-section footer-brand" aria-labelledby="footer-brand-title">
-      <h3 id="footer-brand-title" class="brand-title">Coldbox Perú</h3>
-      <p class="brand-slogan">
-        Construimos proyectos modernos y sostenibles con materiales de alta calidad y excelencia.
-      </p>
-      <div class="footer-social" role="group" aria-label="Síguenos en redes sociales">
-        <a href="https://www.facebook.com/share/1Qa2DJwQ5r/?mibextid=wwXlfr" target="_blank" rel="noopener noreferrer" aria-label="Enlace a Facebook">
+      <div class="grid">
+        <section class="card nav" aria-labelledby="footer-links-title">
+          <h4 id="footer-links-title" class="section-title">Navegación</h4>
+          <nav aria-label="Navegación del sitio">
+            <ul>
+              <li><a routerLink="/" (click)="scrollToTop()">Inicio</a></li>
+              <li><a routerLink="/quienes-somos" (click)="scrollToTop()">Conócenos</a></li>
+              <li><a routerLink="/nuestros-proyectos" (click)="scrollToTop()">Proyectos</a></li>
+              <li><a routerLink="/cotizar-proyecto" (click)="scrollToTop()">Cotizar</a></li>
+            </ul>
+          </nav>
+        </section>
+
+        <section class="card contact" aria-labelledby="footer-contact-title">
+          <h4 id="footer-contact-title" class="section-title">Contacto</h4>
+          <address>
+            <p>
+              <fa-icon [icon]="faEnvelope"></fa-icon>
+              <a href="mailto:info&#64;coldboxperu.com">info&#64;coldboxperu.com</a>
+            </p>
+            <p>
+              <fa-icon [icon]="faPhone"></fa-icon>
+              <a href="tel:+51991038374">+51 991038374</a>
+            </p>
+            <p>
+              <fa-icon [icon]="faMapMarkerAlt"></fa-icon>
+              Lima, Perú
+            </p>
+          </address>
+        </section>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="bottom">
+      <p class="copy">© {{ currentYear }} GCode Software. Todos los derechos reservados.</p>
+      <div class="social" role="group" aria-label="Síguenos en redes sociales">
+        <a href="https://www.facebook.com/share/1Qa2DJwQ5r/?mibextid=wwXlfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
           <fa-icon [icon]="faFacebook"></fa-icon>
         </a>
-        <a href="https://www.instagram.com/coldboxperu/" target="_blank" rel="noopener noreferrer" aria-label="Enlace a Instagram">
+        <a href="https://www.instagram.com/coldboxperu/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
           <fa-icon [icon]="faInstagram"></fa-icon>
         </a>
-        <a href="https://wa.me/51991038374" target="_blank" rel="noopener noreferrer" aria-label="Contáctanos por WhatsApp">
+        <a href="https://wa.me/51991038374" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
           <fa-icon [icon]="faWhatsapp"></fa-icon>
         </a>
       </div>
     </div>
-
-    <div class="footer-section footer-links" aria-labelledby="footer-links-title">
-      <h4 id="footer-links-title">Navegación</h4>
-      <nav class="footer-nav">
-        <ul>
-          <li><a routerLink="/" (click)="scrollToTop()">Inicio</a></li>
-          <li><a routerLink="/quienes-somos" (click)="scrollToTop()">Conócenos</a></li>
-          <li><a routerLink="/nuestros-proyectos" (click)="scrollToTop()">Proyectos</a></li>
-          <li><a routerLink="/cotizar-proyecto" (click)="scrollToTop()">Cotizar</a></li>
-        </ul>
-      </nav>
-    </div>
-
-    <div class="footer-section footer-contact" aria-labelledby="footer-contact-title">
-      <h4 id="footer-contact-title">Contacto</h4>
-      <address>
-        <p>
-          <fa-icon [icon]="faEnvelope"></fa-icon>
-          <a href="mailto:contacto@coldboxperu.com">info&#64;coldboxperu.com</a>
-        </p>
-        <p>
-          <fa-icon [icon]="faPhone"></fa-icon>
-          <a href="tel:+51991038374">+51 991038374</a>
-        </p>
-        <p class="contact-location">
-          <fa-icon [icon]="faMapMarkerAlt"></fa-icon>
-          Lima, Perú
-        </p>
-      </address>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p class="copyright">
-      &copy; {{ currentYear }} GCode Software | Todos los derechos reservados.
-      <a routerLink="/politica-privacidad" (click)="scrollToTop()">Política de Privacidad</a>
-    </p>
   </div>
 </footer>

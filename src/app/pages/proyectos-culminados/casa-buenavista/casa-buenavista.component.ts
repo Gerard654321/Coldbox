@@ -14,18 +14,18 @@ type TimelineStep = { title: string; desc: string };
 export class CasaBuenavistaComponent {
   project = {
     name: 'Casa Buenavista',
-    location: 'Ica, Perú',
+    location: 'El Háras, Ica',
     status: 'Proyecto culminado',
     description:
-      'Residencia unifamiliar con paneles térmicos de alto desempeño, circulación eficiente e iluminación natural. Espacios integrados con mantenimiento sencillo y eficiencia energética.'
+      'Casa Buenavista es un proyecto residencial de dos pisos ubicado en la reconocida Urbanización El Háras, en la ciudad de Ica, Perú. Concebida bajo un enfoque moderno y funcional, esta vivienda combina amplitud, confort y elegancia en un entorno ideal para disfrutar del clima soleado característico de la región. La casa se distingue por su diseño luminoso y ventilado, aprovechando al máximo la entrada de luz natural en todos sus ambientes. En el primer nivel, se integran de manera fluida la sala, el comedor y la cocina, generando un espacio abierto que fomenta la convivencia familiar y la amplitud visual.'
   };
 
   stats: ProjectStat[] = [
-    { label: 'Área', value: '145 m²' },
-    { label: 'Dormitorios', value: '3' },
-    { label: 'Baños', value: '2.5' },
-    { label: 'Estructura', value: 'EPS/PUR' },
-    { label: 'Entrega', value: '2025' }
+    { label: 'Área', value: '200 m²' },
+    { label: 'Dormitorios', value: '04' },
+    { label: 'Baños', value: '04' },
+    { label: 'Estructura', value: 'ISOPANEL' },
+    { label: 'Entrega', value: 'Enero 2023' }
   ];
 
   features = [
@@ -52,7 +52,7 @@ export class CasaBuenavistaComponent {
     { q: '¿Qué desempeño térmico alcanza?', a: 'Con PUR 80–100mm se logran transmitancias por debajo de 0.3–0.4 W/m²K.', open: false }
   ];
 
-  readonly totalImages = 23;
+  readonly totalImages = 24;
   readonly indices = Array.from({ length: this.totalImages }, (_, i) => i + 1);
   currentIndex = 0;
   year = new Date().getFullYear();

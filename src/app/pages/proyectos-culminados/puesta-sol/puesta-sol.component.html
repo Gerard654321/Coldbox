@@ -1,5 +1,5 @@
 <div class="bv" role="document" aria-labelledby="project-title">
-  <header class="bv__hero img-01" role="banner">
+  <header class="bv__hero img-12" role="banner">
     <div class="bv__hero-overlay"></div>
     <div class="bv__hero-content">
       <div class="bv__head">
@@ -9,10 +9,6 @@
         </div>
         <div class="bv__head-right">
           <span class="bv__badge">{{ project.status }}</span>
-          <div class="bv__cta-row">
-            <button class="bv__cta" type="button" (click)="scrollTo('info')">Ver detalles</button>
-            <a class="bv__link" href="#galeria" (click)="$event.preventDefault();scrollTo('galeria')">Galería</a>
-          </div>
         </div>
       </div>
     </div>
@@ -36,19 +32,19 @@
   <main class="bv__main" id="info">
     <section class="bv-kpis" aria-label="Indicadores">
       <div class="bv-kpi">
-        <div class="bv-kpi__value">145 m²</div>
+        <div class="bv-kpi__value">160 m²</div>
         <div class="bv-kpi__label">Área construida</div>
       </div>
       <div class="bv-kpi">
-        <div class="bv-kpi__value">3</div>
-        <div class="bv-kpi__label">Dormitorios</div>
+        <div class="bv-kpi__value">03</div>
+        <div class="bv-kpi__label">Habitaciones</div>
       </div>
       <div class="bv-kpi">
-        <div class="bv-kpi__value">2.5</div>
+        <div class="bv-kpi__value">03</div>
         <div class="bv-kpi__label">Baños</div>
       </div>
       <div class="bv-kpi">
-        <div class="bv-kpi__value">EPS/PUR</div>
+        <div class="bv-kpi__value">ISOPANEL</div>
         <div class="bv-kpi__label">Estructura</div>
       </div>
     </section>
@@ -81,9 +77,6 @@
       <article class="bv-card">
         <h2 class="bv-card__title">Descripción</h2>
         <p class="bv-card__text">{{ project.description }}</p>
-        <ul class="bv-chips" role="list">
-          <li class="bv-chip" *ngFor="let f of features">{{ f }}</li>
-        </ul>
       </article>
 
       <article class="bv-card">
@@ -97,19 +90,6 @@
       </article>
     </section>
 
-    <section class="bv__section" aria-labelledby="timeline-title">
-      <h2 id="timeline-title" class="bv-section__title">Línea de tiempo</h2>
-      <div class="bv-timeline">
-        <div class="bv-step" *ngFor="let t of timeline; let i = index">
-          <div class="bv-step__dot"></div>
-          <div class="bv-step__card">
-            <div class="bv-step__title">{{ t.title }}</div>
-            <div class="bv-step__desc">{{ t.desc }}</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="bv__cta-band" aria-label="Contacto">
       <div class="bv__cta-band-inner">
         <div class="bv__cta-text">
@@ -117,22 +97,14 @@
           <p>Diseñamos y montamos soluciones modulares personalizadas.</p>
         </div>
         <div class="bv__cta-actions">
-          <button class="bv__cta bv__cta--light" type="button" (click)="scrollTo('info')">Solicitar información</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="bv__section" aria-labelledby="faq-title">
-      <h2 id="faq-title" class="bv-section__title">Preguntas frecuentes</h2>
-      <div class="bv-faq">
-        <div class="bv-faq__item" *ngFor="let f of faqs; let i = index">
-          <button class="bv-faq__q" type="button" (click)="toggleFaq(i)">
-            <span>{{ f.q }}</span>
-            <span class="bv-faq__icon" [class.open]="f.open">+</span>
-          </button>
-          <div class="bv-faq__a" [class.open]="f.open">
-            <p>{{ f.a }}</p>
-          </div>
+          <a
+            class="bv__cta bv__cta--light"
+            href="https://wa.me/51991038374?text=Hola%2C%20estoy%20interesado%20en%20una%20cotizaci%C3%B3n%20de%20proyecto."
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Solicitar información
+          </a>
         </div>
       </div>
     </section>

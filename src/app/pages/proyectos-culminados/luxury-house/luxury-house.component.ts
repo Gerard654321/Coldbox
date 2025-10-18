@@ -14,18 +14,18 @@ type TimelineStep = { title: string; desc: string };
 export class LuxuryHouseComponent {
   project = {
     name: 'Luxury House',
-    location: 'Ica, Perú',
+    location: 'El Háras, Ica',
     status: 'Proyecto culminado',
     description:
-      'Residencia unifamiliar con paneles térmicos de alto desempeño, circulación eficiente e iluminación natural. Espacios integrados con mantenimiento sencillo y eficiencia energética.'
+      'Luxury House es un proyecto residencial de una planta diseñado para combinar modernidad, amplitud y confort en un solo nivel. Ubicado en la ciudad de Ica, Perú, este hogar ofrece una experiencia de vida práctica y luminosa, rodeada de naturaleza y espacios abiertos. Desarrollado sobre un terreno amplio y bien distribuido, el proyecto cuenta con cuatro habitaciones y cinco baños, garantizando comodidad y privacidad para todos los miembros de la familia. La sala, el comedor y la cocina integrada conforman un ambiente social abierto, ideal para compartir momentos en familia o con amigos.'
   };
 
   stats: ProjectStat[] = [
-    { label: 'Área', value: '145 m²' },
-    { label: 'Dormitorios', value: '3' },
-    { label: 'Baños', value: '2.5' },
-    { label: 'Estructura', value: 'EPS/PUR' },
-    { label: 'Entrega', value: '2025' }
+    { label: 'Área', value: '200 m²' },
+    { label: 'Habitaciones', value: '03' },
+    { label: 'Baños', value: '03' },
+    { label: 'Estructura', value: 'Poliestireno' },
+    { label: 'Entrega', value: 'Agosto 2024' }
   ];
 
   features = [
@@ -52,7 +52,7 @@ export class LuxuryHouseComponent {
     { q: '¿Qué desempeño térmico alcanza?', a: 'Con PUR 80–100mm se logran transmitancias por debajo de 0.3–0.4 W/m²K.', open: false }
   ];
 
-  readonly totalImages = 23;
+  readonly totalImages = 12;
   readonly indices = Array.from({ length: this.totalImages }, (_, i) => i + 1);
   currentIndex = 0;
   year = new Date().getFullYear();

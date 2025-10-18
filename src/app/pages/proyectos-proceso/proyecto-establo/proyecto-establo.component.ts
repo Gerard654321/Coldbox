@@ -13,7 +13,7 @@ type TimelineStep = { title: string; desc: string };
 })
 export class ProyectoEstabloComponent {
   project = {
-    name: 'Establo para trabajadores',
+    name: 'Establo Pueblo Nuevo',
     location: 'Pueblo Nuevo, Ica',
     status: 'Proyecto en proceso',
     description:

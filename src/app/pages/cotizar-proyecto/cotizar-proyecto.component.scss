@@ -6,144 +6,152 @@ $color-indicators-active: #ffffff;
 $breakpoint-tablet: 768px;
 
 .carousel-container {
-    position: relative;
-    width: 100%;
-    height: 60vh;
-    overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  overflow: hidden;
 }
 
 .carousel-inner {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .carousel-slide-item {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.6s ease-in-out;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
-    &.active {
-        opacity: 1;
-        position: relative;
-    }
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 1;
+  }
+
+  &.active {
+    opacity: 1;
+    position: relative;
+  }
 }
 
-.slide-01 {background-image: url('../../../../public/assets/Proyecto06/Proyecto06.03.png');}
-.slide-02 {background-image: url('../../../../public/assets/Proyecto06/Proyecto06.04.jpg');}
-.slide-03 {background-image: url('../../../../public/assets/Proyecto06/Proyecto06.05.jpg');}
+.slide-01 {background-image: url('../../../../public/assets/FondosCards/Isopaneles02.jpeg');}
+.slide-02 {background-image: url('../../../../public/assets/FondosCards/ProyectoBuenavista17.jpeg');}
+.slide-03 {background-image: url('../../../../public/assets/FondosCards/ProyectoPuestaSol07.jpeg');}
 
 .carousel-overlay {
-    position: absolute;
-    bottom: 10%;
-    right: 10%;
-    max-width: 60%;
-    text-align: right;
-    color: $color-text;
-    padding: 10px;
-    z-index: 5;
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  max-width: 60%;
+  text-align: right;
+  color: $color-text;
+  padding: 10px;
+  z-index: 2;
 
-    @media (max-width: $breakpoint-tablet) {
-        bottom: 5%;
-        left: 50%;
-        right: auto;
-        transform: translateX(-50%);
-        max-width: 90%;
-        text-align: center;
-    }
+  @media (max-width: $breakpoint-tablet) {
+    bottom: 5%;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    max-width: 90%;
+    text-align: center;
+  }
 }
 
 .carousel-text {
-    font-size: 1.5rem;
-    font-weight: 300;
-    line-height: 1.4;
-    margin-bottom: 20px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 
-    @media (max-width: $breakpoint-tablet) {
-        font-size: 1rem;
-    }
+  @media (max-width: $breakpoint-tablet) {
+    font-size: 1rem;
+  }
 }
 
 .carousel-cta {
-    display: inline-flex;
-    align-items: center;
-    padding: 10px 25px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-decoration: none;
-    color: $color-text;
-    background-color: $color-cta-bg;
-    border: 2px solid $color-cta-border;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: $color-text;
+  background-color: $color-cta-bg;
+  border: 2px solid $color-cta-border;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 
-    &:hover {
-        background-color: rgba(255, 255, 255, 0.35);
-    }
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.35);
+  }
 
-    .cta-icon {
-        margin-right: 8px;
-    }
+  .cta-icon {
+    margin-right: 8px;
+  }
 
-    @media (max-width: $breakpoint-tablet) {
-        font-size: 0.9rem;
-        padding: 8px 20px;
-    }
+  @media (max-width: $breakpoint-tablet) {
+    font-size: 0.9rem;
+    padding: 8px 20px;
+  }
 }
 
 .carousel-control {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    color: $color-text;
-    font-size: 3rem;
-    cursor: pointer;
-    padding: 10px;
-    z-index: 10;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: $color-text;
+  font-size: 3rem;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 10;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 
-    &.prev { left: 20px; }
-    &.next { right: 20px; }
+  &.prev { left: 20px; }
+  &.next { right: 20px; }
 
-    @media (max-width: $breakpoint-tablet) {
-        font-size: 2rem;
-        padding: 5px;
-        &.prev { left: 5px; }
-        &.next { right: 5px; }
-    }
+  @media (max-width: $breakpoint-tablet) {
+    font-size: 2rem;
+    padding: 5px;
+    &.prev { left: 5px; }
+    &.next { right: 5px; }
+  }
 }
 
 .carousel-indicators {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-    z-index: 10;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
 }
 
 .indicator {
-    display: block;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: $color-indicators;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: $color-indicators;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 
-    &.active {
-        background-color: $color-indicators-active;
-    }
+  &.active {
+    background-color: $color-indicators-active;
+  }
 }
 
 .moving-strip {
@@ -208,7 +216,7 @@ $background-color: #f0f0f0;
 .image-side {
   flex: 1;
   background-color: $background-color;
-  background-image: url('../../../../public/assets/Proyecto05/Proyecto05.15.png');
+  background-image: url('../../../../public/assets/FondosCards/Isonapenes01.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

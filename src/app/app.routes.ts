@@ -18,13 +18,13 @@ export const routes: Routes = [
   { path: 'nuestros-proyectos', component: NuestrosProyectosComponent },
   { path: 'cotizar-proyecto', component: CotizarProyectoComponent },
 
-  { path: 'casa-buenavista', component: CasaBuenavistaComponent },
-  { path: 'luxury-house', component: LuxuryHouseComponent },
-  { path: 'puesta-sol', component: PuestaSolComponent },
+  { path: 'Casa-Buenavista', component: CasaBuenavistaComponent },
+  { path: 'Luxury-House', component: LuxuryHouseComponent },
+  { path: 'Puesta-Sol', component: PuestaSolComponent },
 
-  { path: 'casa-doble', component: CasaDobleComponent },
-  { path: 'macacona-house', component: MacaconaHouseComponent },
-  { path: 'proyecto-establo', component: ProyectoEstabloComponent },
+  { path: 'Brisas-Del-Sol', component: CasaDobleComponent },
+  { path: 'Nuevo-Horizonte', component: MacaconaHouseComponent },
+  { path: 'Establo-PuebloNuevo', component: ProyectoEstabloComponent },
 
   { path: '**', redirectTo: '' }
 ];

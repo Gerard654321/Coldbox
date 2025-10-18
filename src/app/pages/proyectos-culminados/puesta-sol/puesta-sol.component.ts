@@ -14,18 +14,18 @@ type TimelineStep = { title: string; desc: string };
 export class PuestaSolComponent {
   project = {
     name: 'Casa Puesta del Sol',
-    location: 'Ica, Perú',
+    location: 'El Háras, Ica',
     status: 'Proyecto culminado',
     description:
-      'Residencia unifamiliar con paneles térmicos de alto desempeño, circulación eficiente e iluminación natural. Espacios integrados con mantenimiento sencillo y eficiencia energética.'
+      'Puesta del Sol es un elegante proyecto dúplex desarrollado sobre una base de un solo piso, que combina un diseño moderno con el encanto natural del clima iqueño. Ubicado en una zona residencial de alta proyección en Ica, Perú, este proyecto ofrece confort, estilo y funcionalidad en un área total de 160 m². La vivienda cuenta con tres amplias habitaciones y tres baños, distribuidos inteligentemente para brindar privacidad y comodidad a sus ocupantes. En el primer nivel, los espacios sociales sala, comedor y cocina integrada se unen en un ambiente abierto, luminoso y acogedor que fomenta la convivencia familiar.'
   };
 
   stats: ProjectStat[] = [
-    { label: 'Área', value: '145 m²' },
-    { label: 'Dormitorios', value: '3' },
-    { label: 'Baños', value: '2.5' },
-    { label: 'Estructura', value: 'EPS/PUR' },
-    { label: 'Entrega', value: '2025' }
+    { label: 'Área', value: '160 m²' },
+    { label: 'Habitaciones', value: '03' },
+    { label: 'Baños', value: '03' },
+    { label: 'Estructura', value: 'ISOPANEL' },
+    { label: 'Entrega', value: 'Octubre 2024' }
   ];
 
   features = [
@@ -52,7 +52,7 @@ export class PuestaSolComponent {
     { q: '¿Qué desempeño térmico alcanza?', a: 'Con PUR 80–100mm se logran transmitancias por debajo de 0.3–0.4 W/m²K.', open: false }
   ];
 
-  readonly totalImages = 23;
+  readonly totalImages = 13;
   readonly indices = Array.from({ length: this.totalImages }, (_, i) => i + 1);
   currentIndex = 0;
   year = new Date().getFullYear();

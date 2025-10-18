@@ -13,19 +13,19 @@ type TimelineStep = { title: string; desc: string };
 })
 export class CasaDobleComponent {
   project = {
-    name: 'Double House Haras',
-    location: 'Ica, Perú',
+    name: 'Brisas del Sol',
+    location: 'El Háras, Ica',
     status: 'Proyecto en proceso',
     description:
-      'Residencia unifamiliar con paneles térmicos de alto desempeño, circulación eficiente e iluminación natural. Espacios integrados con mantenimiento sencillo y eficiencia energética.'
+      'Brisas del Sol es un proyecto residencial exclusivo ubicado en la prestigiosa Urbanización El Háras, en la ciudad de Ica, Perú. Este desarrollo arquitectónico está conformado por dos modernas casas unidas, diseñadas para ofrecer confort, estilo y funcionalidad en un entorno de alta calidad urbana. Cada vivienda se levanta sobre un área de 200 m², conformando en conjunto un terreno total de 400 m². Brisas del Sol representa la perfecta combinación entre elegancia moderna y practicidad, con líneas arquitectónicas limpias, materiales de alta calidad y un enfoque en la vida al aire libre, aprovechando el clima soleado característico de Ica. Su entrega está proyectada para febrero del 2026, consolidándose como una de las propuestas residenciales más atractivas y funcionales de la zona.'
   };
 
   stats: ProjectStat[] = [
-    { label: 'Área', value: '145 m²' },
-    { label: 'Dormitorios', value: '3' },
-    { label: 'Baños', value: '2.5' },
-    { label: 'Estructura', value: 'EPS/PUR' },
-    { label: 'Entrega', value: '2025' }
+    { label: 'Área', value: '400 m²' },
+    { label: 'Viviendas', value: '02' },
+    { label: 'Pisos', value: '03' },
+    { label: 'Estructura', value: 'ISOPANEL' },
+    { label: 'Entrega', value: 'Febrero 2026' }
   ];
 
   features = [
@@ -52,7 +52,7 @@ export class CasaDobleComponent {
     { q: '¿Qué desempeño térmico alcanza?', a: 'Con PUR 80–100mm se logran transmitancias por debajo de 0.3–0.4 W/m²K.', open: false }
   ];
 
-  readonly totalImages = 23;
+  readonly totalImages = 21;
   readonly indices = Array.from({ length: this.totalImages }, (_, i) => i + 1);
   currentIndex = 0;
   year = new Date().getFullYear();

@@ -1,8 +1,8 @@
 <header class="header" [ngClass]="{'menu-is-open': isMenuOpen}">
   <a routerLink="/" class="logo" aria-label="Coldbox Perú Logo"></a>
 
-  <div class="menu-toggle" 
-       [attr.aria-expanded]="isMenuOpen" 
+  <div class="menu-toggle"
+       [attr.aria-expanded]="isMenuOpen"
        aria-controls="main-navigation"
        (click)="toggleMenu()">
     <span class="bar bar-top"></span>
@@ -12,24 +12,24 @@
 
   <div class="nav-container" [ngClass]="{'open': isMenuOpen}" *ngIf="isMenuOpen || isDesktop">
     <nav class="main-nav" id="main-navigation" role="navigation">
-      <a routerLink="/" 
-         routerLinkActive="active" 
+      <a routerLink="/"
+         routerLinkActive="active"
          [routerLinkActiveOptions]="{exact:true}"
          (click)="isMenuOpen && toggleMenu()">Inicio</a>
-      <a routerLink="/quienes-somos" 
+      <a routerLink="/quienes-somos"
          routerLinkActive="active"
          (click)="isMenuOpen && toggleMenu()">Conócenos</a>
-      <a routerLink="/casa-buenavista" 
+      <a routerLink="/nuestros-proyectos"
          routerLinkActive="active"
          (click)="isMenuOpen && toggleMenu()">Proyectos</a>
-      <a routerLink="/cotizar-proyecto" 
+      <a routerLink="/cotizar-proyecto"
          routerLinkActive="active"
          (click)="isMenuOpen && toggleMenu()">Cotizar</a>
     </nav>
   </div>
 
-  <a href="https://wa.me/51991038374?text=Hola%2C%20estoy%20interesado%20en%20una%20cotizaci%C3%B3n%20de%20proyecto." 
-     target="_blank" 
+  <a href="https://wa.me/51991038374?text=Hola%2C%20estoy%20interesado%20en%20una%20cotizaci%C3%B3n%20de%20proyecto."
+     target="_blank"
      class="whatsapp-button"
      rel="noopener noreferrer"
      [ngClass]="{'mobile-only': !isDesktop && isMenuOpen}">

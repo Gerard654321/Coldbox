@@ -71,7 +71,7 @@
   line-height: 1.05;
   letter-spacing: -0.02em;
   font-size: clamp(30px, 5.2vw, 54px);
-  background: linear-gradient(90deg, #111827 0%, #3b82f6 45%, #7c3aed 90%);
+  background: linear-gradient(90deg, #111827 0%, #000000 45%, #000000 90%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -87,8 +87,8 @@
   font-weight: 800;
   font-size: 12px;
   border: 1px solid var(--border-strong);
-  color: #1f2937;
-  background: linear-gradient(90deg, rgba(79,70,229,.12), rgba(124,58,237,.12));
+  color: #ffffff;
+  background: #000000;
 }
 
 .bv__cta-row { display: flex; gap: 10px; align-items: center; }
@@ -98,7 +98,7 @@
   padding: 10px 18px;
   font-weight: 800;
   cursor: pointer;
-  background: linear-gradient(90deg, var(--brand-1), var(--brand-2));
+  background: #000000;
   color: white;
   transition: transform .15s ease, filter .2s ease, border-color .2s ease;
 }
@@ -111,9 +111,9 @@
   border-radius: 999px;
   text-decoration: none;
   font-weight: 700;
-  color: #1f2937;
+  color: white;
   border: 1px solid var(--border-strong);
-  background: var(--surface-soft);
+  background: #000000;
 }
 
 .bv-ticker {
@@ -174,7 +174,7 @@
   overflow: hidden;
   border: 1px solid var(--border-strong);
   background: #1118270a;
-  min-height: clamp(320px, 52dvh, 520px);
+  min-height: clamp(320px, 72dvh, 720px);
 }
 .bv-gallery__image {
   width: 100%;
@@ -346,7 +346,7 @@
 .bv__cta-text p { margin: 0; color: var(--muted); }
 .bv__cta-actions { display: grid; justify-items: end; }
 .bv__cta--light {
-  background: linear-gradient(90deg, var(--brand-3), var(--brand-2));
+  background: #000000;
   color: #fff;
   border: 1px solid var(--border-strong);
 }
@@ -397,26 +397,15 @@
 .bv__section { display: grid; gap: 16px; }
 .bv__footer { padding: 20px; text-align: center; color: #64748b; }
 
-.img-01 { background-image: url('../../../../../public/assets/Proyecto01/Proyecto01.01.jpeg'); }
-.img-02 { background-image: url('../../../../../public/assets/Proyecto01/Proyecto01.02.jpg'); }
-.img-03 { background-image: url('../../../../../public/assets/Proyecto01/Proyecto01.03.jpg'); }
-.img-04 { background-image: url('../../../../../public/assets/Proyecto01/Proyecto01.04.jpg'); }
-.img-05 { background-image: url('../../../../../public/assets/Proyecto01/Proyecto01.05.jpg'); }
-.img-06 { background-image: url('../../../../../public/assets/Proyecto01/Proyecto01.06.jpg'); }
-.img-07 { background-image: url('../../../../../public/assets/Proyecto01/Proyecto01.07.jpg'); }
-.img-08 { background-image: url('../../../../../public/assets/Proyecto01/Proyecto01.08.jpg'); }
-.img-09 { background-image: url('../../../../../public/assets/Proyecto01/Proyecto01.09.jpg'); }
-.img-10 { background-image: url('../../../../../public/assets/Proyecto01/Proyecto01.10.jpg'); }
-.img-11 { background-image: url('../../../../../public/assets/Proyecto01/Proyecto01.11.jpg'); }
-.img-12 { background-image: url('../../../../../public/assets/Proyecto01/Proyecto01.12.jpg'); }
-.img-13 { background-image: url('../../../../../public/assets/Proyecto01/Proyecto01.13.jpg'); }
-.img-14 { background-image: url('../../../../../public/assets/Proyecto01/Proyecto01.14.jpg'); }
-.img-15 { background-image: url('../../../../../public/assets/Proyecto01/Proyecto01.15.jpg'); }
-.img-16 { background-image: url('../../../../../public/assets/Proyecto01/Proyecto01.16.jpg'); }
-.img-17 { background-image: url('../../../../../public/assets/Proyecto01/Proyecto01.17.jpg'); }
-.img-18 { background-image: url('../../../../../public/assets/Proyecto01/Proyecto01.18.jpg'); }
-.img-19 { background-image: url('../../../../../public/assets/Proyecto01/Proyecto01.19.jpg'); }
-.img-20 { background-image: url('../../../../../public/assets/Proyecto01/Proyecto01.20.jpg'); }
-.img-21 { background-image: url('../../../../../public/assets/Proyecto01/Proyecto01.21.jpg'); }
-.img-22 { background-image: url('../../../../../public/assets/Proyecto01/Proyecto01.22.jpg'); }
-.img-23 { background-image: url('../../../../../public/assets/Proyecto01/Proyecto01.23.jpg'); }
+.img-01 { background-image: url('../../../../../public/assets/ProyectoLuxuryHouse/LuxuryHouse01.jpeg'); }
+.img-02 { background-image: url('../../../../../public/assets/ProyectoLuxuryHouse/LuxuryHouse02.jpeg'); }
+.img-03 { background-image: url('../../../../../public/assets/ProyectoLuxuryHouse/LuxuryHouse03.jpeg'); }
+.img-04 { background-image: url('../../../../../public/assets/ProyectoLuxuryHouse/LuxuryHouse04.jpeg'); }
+.img-05 { background-image: url('../../../../../public/assets/ProyectoLuxuryHouse/LuxuryHouse05.jpeg'); }
+.img-06 { background-image: url('../../../../../public/assets/ProyectoLuxuryHouse/LuxuryHouse06.jpeg'); }
+.img-07 { background-image: url('../../../../../public/assets/ProyectoLuxuryHouse/LuxuryHouse07.jpeg'); }
+.img-08 { background-image: url('../../../../../public/assets/ProyectoLuxuryHouse/LuxuryHouse08.jpeg'); }
+.img-09 { background-image: url('../../../../../public/assets/ProyectoLuxuryHouse/LuxuryHouse09.JPG'); }
+.img-10 { background-image: url('../../../../../public/assets/ProyectoLuxuryHouse/LuxuryHouse10.jpeg'); }
+.img-11 { background-image: url('../../../../../public/assets/ProyectoLuxuryHouse/LuxuryHouse11.jpeg'); }
+.img-12 { background-image: url('../../../../../public/assets/ProyectoLuxuryHouse/LuxuryHouse12.jpeg'); }

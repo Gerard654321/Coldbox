@@ -13,19 +13,19 @@ type TimelineStep = { title: string; desc: string };
 })
 export class MacaconaHouseComponent {
   project = {
-    name: 'Casa Buenavista',
-    location: 'Ica, Perú',
-    status: 'Proyecto culminado',
+    name: 'Casa Nuevo Horizonte',
+    location: 'Urb. Macacona, Ica',
+    status: 'Proyecto en proceso',
     description:
-      'Residencia unifamiliar con paneles térmicos de alto desempeño, circulación eficiente e iluminación natural. Espacios integrados con mantenimiento sencillo y eficiencia energética.'
+      'Casa Nuevo Horizonte es un proyecto residencial de una planta ubicado en la exclusiva Urbanización Macacona, en la ciudad de Ica, Perú. Concebido como un espacio moderno, amplio y funcional, este proyecto se desarrolla sobre un terreno de 400 m², combinando elegancia arquitectónica con el confort de un hogar contemporáneo. El diseño integra 06 amplias habitaciones y 04 baños completos, distribuidos estratégicamente para brindar privacidad y comodidad a cada miembro de la familia. La zona social cuenta con una sala de estar luminosa, un comedor principal y una cocina moderna de concepto abierto, que permite la integración visual y funcional de los ambientes. En el exterior, la vivienda ofrece amplias áreas verdes ideales para el descanso y la recreación, además de una zona de parrilla y una piscina privada, perfectas para reuniones familiares y sociales al aire libre. El proyecto incluye también una cochera techada, asegurando comodidad y seguridad vehicular.'
   };
 
   stats: ProjectStat[] = [
-    { label: 'Área', value: '145 m²' },
-    { label: 'Dormitorios', value: '3' },
-    { label: 'Baños', value: '2.5' },
-    { label: 'Estructura', value: 'EPS/PUR' },
-    { label: 'Entrega', value: '2025' }
+    { label: 'Área', value: '400 m²' },
+    { label: 'Habitaciones', value: '06' },
+    { label: 'Zonas', value: 'Piscina | Parrilla' },
+    { label: 'Estructura', value: 'ISOPANEL' },
+    { label: 'Entrega', value: 'Diciembre 2025' }
   ];
 
   features = [
@@ -52,7 +52,7 @@ export class MacaconaHouseComponent {
     { q: '¿Qué desempeño térmico alcanza?', a: 'Con PUR 80–100mm se logran transmitancias por debajo de 0.3–0.4 W/m²K.', open: false }
   ];
 
-  readonly totalImages = 23;
+  readonly totalImages = 30;
   readonly indices = Array.from({ length: this.totalImages }, (_, i) => i + 1);
   currentIndex = 0;
   year = new Date().getFullYear();
